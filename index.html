@@ -12,17 +12,34 @@
       --accent: #2E6659;
       --light: #FFFFFF;
       --gray: #F1F1F1;
-      --green-order: #25D366;
-      --green-hover: #20B857;
-      --modal-bg: #1E293B;
-      --modal-text: #E2E8F0;
-      --modal-subtext: #94A3B8;
-      --modal-input-bg: #2D3748;
-      --modal-input-border: #4A5568;
-      --modal-btn-primary: #10B981;
-      --modal-btn-primary-hover: #059669;
-      --modal-btn-secondary: #4B5563;
-      --modal-btn-secondary-hover: #374151;
+      --green-order: #25D366; /* Used for product card buttons */
+      --green-hover: #20B857; /* Used for product card buttons hover */
+      
+      /* Themed Modal Colors */
+      --orange-accent-color: #FFA726; /* Brighter Orange for accents */
+      --modal-bg-themed: var(--light);
+      --modal-text-themed: var(--primary);
+      --modal-subtext-themed: #4A5568; /* Darker gray for subtext on light bg */
+      --modal-border-themed: #CBD5E0; /* Light gray border for elements */
+      
+      --modal-input-bg-themed: #F7FAFC; /* Very light gray for inputs */
+      --modal-input-border-themed: var(--accent);
+      --modal-input-text-themed: var(--primary);
+      --modal-input-placeholder-themed: #A0AEC0;
+
+      --modal-btn-primary-bg-themed: var(--accent);
+      --modal-btn-primary-text-themed: var(--light);
+      --modal-btn-primary-hover-bg-themed: var(--primary);
+
+      --modal-btn-secondary-bg-themed: var(--light);
+      --modal-btn-secondary-text-themed: var(--accent);
+      --modal-btn-secondary-border-themed: var(--accent);
+      --modal-btn-secondary-hover-bg-themed: #EDF2F7; /* Light green-ish tint for hover */
+      --modal-btn-secondary-hover-text-themed: var(--primary);
+
+
+      --modal-btn-disabled-bg-themed: #A3C1AD; /* Light, muted green for disabled */
+      --modal-btn-disabled-text-themed: #E2E8F0; /* Light text for disabled */
     }
 
     * {
@@ -128,14 +145,14 @@
     .nav-actions {
         display: flex;
         align-items: center;
-        gap: 20px; /* Space between cart icon and menu icon */
+        gap: 20px; 
     }
 
     .cart-icon-wrapper {
         position: relative;
         cursor: pointer;
         color: var(--primary);
-        font-size: 22px; /* Adjust size as needed */
+        font-size: 22px; 
     }
 
     .cart-icon-wrapper:hover {
@@ -146,14 +163,14 @@
         position: absolute;
         top: -8px;
         right: -10px;
-        background-color: var(--accent);
+        background-color: var(--orange-accent-color); /* Changed to orange */
         color: var(--light);
         border-radius: 50%;
         padding: 2px 6px;
         font-size: 10px;
         font-weight: bold;
         line-height: 1;
-        min-width: 18px; /* Ensure circle shape for single digit */
+        min-width: 18px; 
         text-align: center;
     }
 
@@ -288,13 +305,13 @@
       padding: 0;
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
       transition: all 0.3s ease;
-      /* cursor: pointer; */ /* Removed as button is the main interaction point */
       text-align: left;
       max-width: 320px;
       width: 100%;
       overflow: hidden;
       transform: translateY(30px);
       opacity: 0;
+      border: 1px solid var(--gray);
     }
 
     .menu-item.visible {
@@ -337,7 +354,7 @@
       font-size: 14px;
       color: #666;
       margin-bottom: 15px;
-      height: 40px;
+      height: 40px; /* Ensures consistent height */
     }
 
     .menu-item p.price {
@@ -347,7 +364,7 @@
       font-weight: 700;
     }
 
-    .order-button { /* Renamed to reflect general button style, used by add-to-cart */
+    .order-button { 
       display: flex;
       align-items: center;
       justify-content: center;
@@ -362,6 +379,7 @@
       transition: all 0.3s ease;
       width: 100%;
       cursor: pointer;
+      border: none; /* remove default border */
     }
 
     .order-button:hover {
@@ -371,8 +389,8 @@
     }
 
     .menu-item:hover {
-      transform: translateY(-10px); /* Slightly less dramatic than before to avoid overshadowing button */
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      transform: translateY(-10px); 
+      box-shadow: 0 20px 40px rgba(46, 102, 89, 0.15); /* Shadow with accent color hint */
     }
 
     .menu-item:hover h3 {
@@ -709,40 +727,40 @@
 
     /* MODAL (GENERAL STYLES) & CART MODAL */
     .modal {
-      display: none; /* Hidden by default */
+      display: none; 
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.75);
+      background-color: rgba(0, 0, 0, 0.6); /* Slightly less opaque */
       z-index: 1050;
-      overflow-y: auto; /* Changed to auto for scrolling */
+      overflow-y: auto; 
       align-items: center;
       justify-content: center;
       padding: 20px;
     }
 
     .modal.show {
-      display: flex; /* Use flex for centering */
+      display: flex; 
     }
 
-    .modal-content { /* Base style for modal content */
-      background-color: var(--modal-bg);
+    .modal-content { 
+      background-color: var(--modal-bg-themed);
       border-radius: 15px;
       width: 100%;
-      padding: 30px;
+      padding: 25px; /* Slightly reduced padding */
       position: relative;
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       animation: modalFadeIn 0.3s ease;
-      color: var(--modal-text);
-      max-height: 90vh; /* Limit height */
-      display: flex; /* Added for internal layout */
-      flex-direction: column; /* Added for internal layout */
+      color: var(--modal-text-themed);
+      max-height: 90vh; 
+      display: flex; 
+      flex-direction: column; 
     }
     
-    .cart-modal-content { /* Specific to cart modal */
-        max-width: 700px; /* Wider for cart items */
+    .cart-modal-content { 
+        max-width: 700px; 
     }
 
 
@@ -762,65 +780,69 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid var(--modal-border-themed);
+      padding-bottom: 15px;
     }
 
     .modal-title {
-      font-size: 24px;
+      font-size: 22px; /* Slightly smaller */
       font-weight: 700;
-      color: var(--modal-text);
-      margin-bottom: 5px;
+      color: var(--modal-text-themed);
+      margin: 0; /* Remove default margin */
     }
 
-    .modal-subtitle {
-      font-size: 14px;
-      color: var(--modal-subtext);
+    .modal-subtitle { /* For form section title */
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--modal-text-themed);
+      margin-bottom: 15px;
     }
 
-    .close-modal-btn { /* Style for close button (X) */
+    .close-modal-btn { 
         background: none;
         border: none;
         font-size: 28px;
-        color: var(--modal-subtext);
+        color: var(--orange-accent-color); /* Orange */
         cursor: pointer;
         padding: 0;
         line-height: 1;
     }
     .close-modal-btn:hover {
-        color: var(--modal-text);
+        color: var(--primary); /* Darker on hover */
     }
 
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 18px; /* Slightly reduced */
     }
 
     .form-label {
       display: block;
       font-size: 14px;
       font-weight: 500;
-      color: var(--modal-text);
-      margin-bottom: 8px;
+      color: var(--modal-text-themed);
+      margin-bottom: 6px; /* Slightly reduced */
     }
 
     .form-control {
       width: 100%;
-      padding: 12px 15px;
-      background-color: var(--modal-input-bg);
-      border: 1px solid var(--modal-input-border);
+      padding: 10px 12px; /* Slightly reduced padding */
+      background-color: var(--modal-input-bg-themed);
+      border: 1px solid var(--modal-input-border-themed);
       border-radius: 8px;
       font-size: 15px;
-      color: var(--modal-text);
+      color: var(--modal-input-text-themed);
       transition: all 0.3s ease;
     }
 
     .form-control:focus {
-      border-color: var(--modal-btn-primary);
-      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+      border-color: var(--primary); /* Darker green on focus */
+      box-shadow: 0 0 0 3px rgba(46, 102, 89, 0.15); /* Accent color shadow */
       outline: none;
     }
 
     .form-control::placeholder {
-      color: var(--modal-subtext);
+      color: var(--modal-input-placeholder-themed);
     }
 
     textarea.form-control {
@@ -832,44 +854,47 @@
       display: flex;
       justify-content: flex-end;
       gap: 15px;
-      margin-top: 30px;
-      border-top: 1px solid var(--modal-input-border); /* Separator line */
-      padding-top: 20px; /* Space above buttons */
+      margin-top: 25px; /* Slightly reduced */
+      border-top: 1px solid var(--modal-border-themed); 
+      padding-top: 20px; 
     }
 
-    .btn {
-      padding: 12px 25px;
+    .btn { /* General button styling, can be overridden */
+      padding: 10px 20px; /* Slightly smaller buttons */
       border-radius: 8px;
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
       border: none;
+      text-decoration: none; /* Ensure no underline for <a> tags styled as buttons */
     }
 
-    .btn-secondary {
-      background-color: var(--modal-btn-secondary);
-      color: var(--modal-text);
+    /* Themed Buttons for Modal */
+    .btn-modal-secondary { /* Continue Shopping, Cancel */
+      background-color: var(--modal-btn-secondary-bg-themed);
+      color: var(--modal-btn-secondary-text-themed);
+      border: 1px solid var(--modal-btn-secondary-border-themed);
+    }
+    .btn-modal-secondary:hover {
+      background-color: var(--modal-btn-secondary-hover-bg-themed);
+      color: var(--modal-btn-secondary-hover-text-themed);
+      border-color: var(--modal-btn-secondary-hover-text-themed);
     }
 
-    .btn-secondary:hover {
-      background-color: var(--modal-btn-secondary-hover);
+    .btn-modal-primary { /* Checkout */
+      background-color: var(--modal-btn-primary-bg-themed);
+      color: var(--modal-btn-primary-text-themed);
+      box-shadow: 0 4px 10px rgba(46, 102, 89, 0.2); /* Shadow with accent color */
     }
-
-    .btn-primary {
-      background-color: var(--modal-btn-primary);
-      color: var(--modal-text);
-      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
-    }
-
-    .btn-primary:hover {
-      background-color: var(--modal-btn-primary-hover);
+    .btn-modal-primary:hover {
+      background-color: var(--modal-btn-primary-hover-bg-themed);
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
+      box-shadow: 0 6px 15px rgba(26, 60, 52, 0.3);
     }
-    .btn-primary:disabled {
-        background-color: #047857; /* Darker green for disabled */
-        color: #A1A1AA; /* Muted text color */
+    .btn-modal-primary:disabled {
+        background-color: var(--modal-btn-disabled-bg-themed);
+        color: var(--modal-btn-disabled-text-themed);
         cursor: not-allowed;
         box-shadow: none;
         transform: none;
@@ -882,16 +907,16 @@
 
     /* CART SPECIFIC STYLES */
     .cart-items-list {
-        max-height: 300px; /* Max height for item list before scroll */
-        overflow-y: auto;
+        flex-grow: 1; /* Takes available space */
+        overflow-y: auto; /* Scrolls if content overflows */
         margin-bottom: 20px;
-        padding-right: 10px; /* For scrollbar */
+        padding-right: 5px; /* Space for scrollbar, less intrusive */
     }
     .cart-item {
         display: flex;
         align-items: center;
-        padding: 15px 0;
-        border-bottom: 1px solid var(--modal-input-border);
+        padding: 15px 5px; /* Adjust padding */
+        border-bottom: 1px solid var(--modal-border-themed);
         gap: 15px;
     }
     .cart-item:last-child {
@@ -902,6 +927,7 @@
         height: 60px;
         object-fit: cover;
         border-radius: 8px;
+        border: 1px solid var(--modal-border-themed);
     }
     .cart-item-details {
         flex-grow: 1;
@@ -909,12 +935,12 @@
     .cart-item-name {
         font-size: 16px;
         font-weight: 600;
-        color: var(--modal-text);
-        margin: 0 0 5px 0;
+        color: var(--modal-text-themed);
+        margin: 0 0 3px 0; /* Reduced bottom margin */
     }
     .cart-item-price {
         font-size: 14px;
-        color: var(--modal-subtext);
+        color: var(--modal-subtext-themed);
         margin: 0;
     }
     .cart-item-quantity {
@@ -922,9 +948,9 @@
         align-items: center;
     }
     .quantity-btn {
-        background-color: var(--modal-input-bg);
-        color: var(--modal-text);
-        border: 1px solid var(--modal-input-border);
+        background-color: var(--modal-input-bg-themed);
+        color: var(--modal-text-themed);
+        border: 1px solid var(--modal-input-border-themed);
         border-radius: 4px;
         width: 28px;
         height: 28px;
@@ -933,69 +959,64 @@
         transition: background-color 0.2s;
     }
     .quantity-btn:hover {
-        background-color: var(--modal-btn-secondary);
+        background-color: var(--modal-btn-secondary-hover-bg-themed); /* Light green tint */
     }
     .quantity-input {
         width: 40px;
         text-align: center;
-        border: 1px solid var(--modal-input-border);
-        background-color: var(--modal-input-bg);
-        color: var(--modal-text);
+        border: 1px solid var(--modal-input-border-themed);
+        background-color: var(--modal-input-bg-themed);
+        color: var(--modal-input-text-themed);
         border-radius: 4px;
         margin: 0 5px;
         padding: 5px;
-        -moz-appearance: textfield; /* Firefox */
+        -moz-appearance: textfield; 
     }
     .quantity-input::-webkit-outer-spin-button,
-    .quantity-input::-webkit-inner-spin-button { /* Chrome, Safari, Edge, Opera */
+    .quantity-input::-webkit-inner-spin-button { 
         -webkit-appearance: none;
         margin: 0;
     }
     .cart-item-subtotal {
         font-size: 15px;
         font-weight: 600;
-        color: var(--modal-text);
-        min-width: 80px; /* Ensure alignment */
+        color: var(--modal-text-themed);
+        min-width: 80px; 
         text-align: right;
     }
     .remove-item-btn {
         background: none;
         border: none;
-        color: #EF4444; /* Red for delete */
-        font-size: 18px;
+        color: var(--orange-accent-color); /* Orange */
+        font-size: 20px; /* Slightly larger */
         cursor: pointer;
         padding: 5px;
+        line-height: 1;
     }
     .remove-item-btn:hover {
-        color: #DC2626; /* Darker red */
+        color: #E57A00; /* Darker Orange */
     }
     #cartEmptyMessage {
-        padding: 30px 0;
+        padding: 40px 0; /* More padding */
         text-align: center;
         font-size: 16px;
-        color: var(--modal-subtext);
+        color: var(--modal-subtext-themed);
     }
     .cart-summary {
-        margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid var(--modal-input-border);
+        margin-top: 10px; /* Reduced margin */
+        padding-top: 15px; /* Reduced padding */
+        border-top: 1px solid var(--modal-border-themed);
         text-align: right;
     }
     .cart-total-price {
         font-size: 20px;
         font-weight: 700;
-        color: var(--modal-text);
+        color: var(--modal-text-themed);
     }
     .customer-details-form {
         margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid var(--modal-input-border);
-    }
-    .customer-details-form .modal-subtitle {
-        color: var(--modal-text);
-        text-align: left;
-        margin-bottom: 15px;
-        font-weight: 600;
+        padding-top: 0; /* No top padding, header has bottom border */
+        /* border-top: 1px solid var(--modal-border-themed); */ /* Removed, modal-header has border now */
     }
 
 
@@ -1045,17 +1066,17 @@
         margin: 15px 0;
       }
       
-      .nav-actions { /* Ensure mobile menu icon is always visible */
+      .nav-actions { 
         display: flex; 
         align-items: center;
-        gap: 15px; /* Adjust gap for mobile */
+        gap: 15px; 
       }
       .mobile-menu {
         display: block;
-        z-index: 1002; /* Ensure it's above nav links when closed */
+        z-index: 1002; 
       }
        .cart-icon-wrapper {
-        font-size: 20px; /* Slightly smaller cart icon on mobile */
+        font-size: 20px; 
       }
       .cart-item-count {
         top: -6px;
@@ -1134,17 +1155,22 @@
 
       .cart-modal-content {
         max-width: 95%;
-        padding: 20px;
+        padding: 15px; /* Reduced padding for mobile */
+      }
+      .modal-title {
+        font-size: 20px;
       }
       .cart-item {
-        flex-wrap: wrap; /* Allow items to wrap on small screens */
+        flex-wrap: wrap; 
         gap: 10px;
+        padding: 10px 0;
       }
-      .cart-item-details { order: 1; flex-basis: calc(100% - 70px); } /* Image + Details on one line */
+      .cart-item-image { width: 50px; height: 50px;}
+      .cart-item-details { order: 1; flex-basis: calc(100% - 60px); } 
       .cart-item-image { order: 0; }
-      .cart-item-quantity { order: 2; flex-basis: 60%; }
-      .cart-item-subtotal { order: 3; flex-basis: 35%; text-align: right; }
-      .remove-item-btn { order: 4; flex-basis: 100%; text-align: right; margin-top: 5px; }
+      .cart-item-quantity { order: 2; flex-basis: 55%; } /* Adjusted width */
+      .cart-item-subtotal { order: 3; flex-basis: 35%; text-align: right; font-size: 14px; } /* Adjusted width */
+      .remove-item-btn { order: 4; flex-basis: 100%; text-align: right; margin-top: 5px; padding: 0 5px 5px 5px; font-size: 18px; }
 
       .modal-footer {
         flex-direction: column;
@@ -1152,6 +1178,8 @@
       }
       .modal-footer .btn {
         width: 100%;
+        font-size: 14px; /* Slightly smaller button text on mobile */
+        padding: 12px 15px; /* Adjust padding for better tap */
       }
     }
 
@@ -1167,10 +1195,6 @@
 
       .section-title {
         font-size: 28px;
-      }
-
-      .menu-item {
-        padding: 0;
       }
       
       .menu-item-content {
@@ -1191,6 +1215,23 @@
       
       .hero-content {
         padding: 0 10px;
+      }
+      .modal-content {
+          padding: 15px; /* Further reduce padding on very small screens */
+      }
+      .modal-title {
+          font-size: 18px;
+      }
+      .form-label {
+          font-size: 13px;
+      }
+      .form-control {
+          font-size: 14px;
+          padding: 8px 10px;
+      }
+      .btn { /* Modal buttons on very small screens */
+          font-size: 14px;
+          padding: 10px 15px;
       }
     }
   </style>
@@ -1235,9 +1276,8 @@
     <div class="container">
       <h2 class="section-title">Our Signature Drinks</h2>
       <div class="menu-grid">
-        <!-- Updated Menu Items with data attributes -->
-        <div class="menu-item" data-id="ice-ctrl-coffee" data-name="Ice CTRL+ Coffee" data-price="10000" data-image="/api/placeholder/60/60?text=Ice+CTRL">
-          <div class="menu-item-image" style="background-image: url('./Gallery/BRAND\ CTRL+COFFE.png');"></div>
+        <div class="menu-item" data-id="ice-ctrl-coffee" data-name="Ice CTRL+ Coffee" data-price="10000" data-image="/api/placeholder/60/60?text=Ice+CTRL&bg=2E6659&fg=FFFFFF">
+          <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+CTRL+Coffee&bg=1A3C34&fg=FFFFFF');"></div>
           <div class="menu-item-content">
             <h3>Ice CTRL+ Coffee</h3>
             <div class="menu-item-desc">Our signature cold brew with a hint of vanilla.</div>
@@ -1247,8 +1287,8 @@
             </a>
           </div>
         </div>
-        <div class="menu-item" data-id="ice-lemon-rock" data-name="Ice Lemon Rock" data-price="12000" data-image="/api/placeholder/60/60?text=Lemon+Rock">
-          <div class="menu-item-image" style="background-image: url('./Gallery/BRAND\ CTRL+COFFE.png');"></div>
+        <div class="menu-item" data-id="ice-lemon-rock" data-name="Ice Lemon Rock" data-price="12000" data-image="/api/placeholder/60/60?text=Lemon+Rock&bg=2E6659&fg=FFFFFF">
+          <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+Lemon+Rock&bg=1A3C34&fg=FFFFFF');"></div>
           <div class="menu-item-content">
             <h3>Ice Lemon Rock</h3>
             <div class="menu-item-desc">Refreshing lemon soda with mint and basil notes.</div>
@@ -1258,8 +1298,8 @@
             </a>
           </div>
         </div>
-        <div class="menu-item" data-id="ice-chocolatte" data-name="Ice Chocolatte" data-price="10000" data-image="/api/placeholder/60/60?text=Chocolatte">
-          <div class="menu-item-image" style="background-image: url('./Gallery/BRAND\ CTRL+COFFE.png');"></div>
+        <div class="menu-item" data-id="ice-chocolatte" data-name="Ice Chocolatte" data-price="10000" data-image="/api/placeholder/60/60?text=Chocolatte&bg=2E6659&fg=FFFFFF">
+          <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+Chocolatte&bg=1A3C34&fg=FFFFFF');"></div>
           <div class="menu-item-content">
             <h3>Ice Chocolatte</h3>
             <div class="menu-item-desc">Premium chocolate with creamy milk and ice.</div>
@@ -1269,8 +1309,8 @@
             </a>
           </div>
         </div>
-        <div class="menu-item" data-id="ice-matcha-latte" data-name="Ice Matcha Latte" data-price="15000" data-image="/api/placeholder/60/60?text=Matcha">
-          <div class="menu-item-image" style="background-image: url('./Gallery/BRAND\ CTRL+COFFE.png');"></div>
+        <div class="menu-item" data-id="ice-matcha-latte" data-name="Ice Matcha Latte" data-price="15000" data-image="/api/placeholder/60/60?text=Matcha&bg=2E6659&fg=FFFFFF">
+          <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+Matcha+Latte&bg=1A3C34&fg=FFFFFF');"></div>
           <div class="menu-item-content">
             <h3>Ice Matcha Latte</h3>
             <div class="menu-item-desc">Authentic Japanese matcha with creamy milk.</div>
@@ -1280,8 +1320,8 @@
             </a>
           </div>
         </div>
-        <div class="menu-item" data-id="ice-lava-pink" data-name="Ice Lava Pink" data-price="15000" data-image="/api/placeholder/60/60?text=Lava+Pink">
-          <div class="menu-item-image" style="background-image: url('./Gallery/BRAND_CTRL+COFFE@.png');"></div>
+        <div class="menu-item" data-id="ice-lava-pink" data-name="Ice Lava Pink" data-price="15000" data-image="/api/placeholder/60/60?text=Lava+Pink&bg=FFA726&fg=FFFFFF">
+          <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+Lava+Pink&bg=FFA726&fg=1A3C34');"></div>
           <div class="menu-item-content">
             <h3>Ice Lava Pink</h3>
             <div class="menu-item-desc">Exotic dragon fruit blend with a hint of coconut.</div>
@@ -1301,7 +1341,7 @@
       <div class="testimonial-container">
         <div class="testimonial-item">
           <div class="testimonial-avatar">
-            <img src="/api/placeholder/80/80" alt="User Avatar">
+            <img src="/api/placeholder/80/80?text=R&bg=2E6659&fg=FFFFFF" alt="User Avatar">
           </div>
           <p class="testimonial-text">"CTRL + Coffee is my coding sanctuary! The Ice Matcha Latte keeps me energized through late-night debugging sessions. Best coffee spot for tech enthusiasts!"</p>
           <h4 class="testimonial-name">Rina Wijaya</h4>
@@ -1374,7 +1414,7 @@
       </div>
 
       <div class="customer-details-form" id="customerDetailsSection">
-          <h3 class="modal-subtitle">Customer Details for Order</h3>
+          <h3 class="modal-subtitle">Customer Details</h3>
           <form id="cartOrderForm">
               <div class="form-group">
                   <label class="form-label" for="customerName">Nama</label>
@@ -1398,9 +1438,9 @@
                   <textarea id="customerNotes" name="customerNotes" class="form-control" placeholder="Contoh: Es sedikit, tanpa gula (opsional)"></textarea>
               </div>
               <div class="modal-footer">
-                  <button type="button" id="continueShoppingBtn" class="btn btn-secondary">Continue Shopping</button>
-                  <button type="submit" id="checkoutViaWhatsAppBtn" class="btn btn-primary" disabled>
-                  <i class="fa-brands fa-whatsapp whatsapp-icon"></i> Checkout via WhatsApp
+                  <button type="button" id="continueShoppingBtn" class="btn btn-modal-secondary">Continue Shopping</button>
+                  <button type="submit" id="checkoutViaWhatsAppBtn" class="btn btn-modal-primary" disabled>
+                  <i class="fa-brands fa-whatsapp whatsapp-icon"></i> Checkout
                   </button>
               </div>
           </form>
@@ -1430,12 +1470,12 @@
     });
 
     // Scroll Animation for Menu Items
-    const menuItemsElements = document.querySelectorAll('.menu-item'); // Renamed to avoid conflict
+    const menuItemsElements = document.querySelectorAll('.menu-item'); 
     
     function checkScroll() {
       const triggerBottom = window.innerHeight * 0.8;
       
-      menuItemsElements.forEach((menuItemEl, index) => { // Renamed to avoid conflict
+      menuItemsElements.forEach((menuItemEl, index) => { 
         const menuTop = menuItemEl.getBoundingClientRect().top;
         
         if (menuTop < triggerBottom) {
@@ -1475,35 +1515,51 @@
     
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        e.preventDefault();
         const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        const targetElement = document.querySelector(targetId);
+        // Allow default behavior if it's not just a hash or if it's a cart button etc.
+        if (!targetId.startsWith('#') || targetId === '#' || this.classList.contains('add-to-cart-btn') || this.classList.contains('order-button')) {
+             // Let specific buttons handle their own logic
+            if (!this.classList.contains('add-to-cart-btn') && !this.classList.contains('order-button')) {
+                // If it's a nav link to another page or external, let it proceed
+                if (targetId.includes('.html') || targetId.startsWith('http')) return;
+            } else {
+                 e.preventDefault(); // Prevent default for cart/order buttons if they are <a>
+            }
+        } else {
+             e.preventDefault(); // Prevent default for internal page links
+        }
+
+        // If it's a mobile menu link, close menu
+        if (navLinks.classList.contains('active') && targetId.startsWith('#') && targetId !== '#') {
+            navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }
         
-        if (targetElement) {
-          navLinks.classList.remove('active');
-          overlay.classList.remove('active');
-          mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
-          window.scrollTo({
-            top: targetElement.offsetTop - 80, // Adjusted for fixed header
-            behavior: 'smooth'
-          });
+        if (targetId.startsWith('#') && targetId !== '#') {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80, // Adjusted for fixed header
+                behavior: 'smooth'
+              });
+            }
         }
       });
     });
     
     // Testimonial carousel
     const dots = document.querySelectorAll('.dot');
-    const testimonialItemsData = [ // Renamed to avoid conflict
-      { avatar: "/api/placeholder/80/80?text=R", text: "\"CTRL + Coffee is my coding sanctuary! The Ice Matcha Latte keeps me energized through late-night debugging sessions. Best coffee spot for tech enthusiasts!\"", name: "Rina Wijaya", role: "Software Developer" },
-      { avatar: "/api/placeholder/80/80?text=B", text: "\"Their Ice Lava Pink is not just Instagram-worthy but absolutely delicious! The staff knows my order before I even reach the counter. Love the tech-vibe here!\"", name: "Budi Santoso", role: "UI/UX Designer" },
-      { avatar: "/api/placeholder/80/80?text=D", text: "\"As a digital nomad, I've tried coffee shops all over Indonesia. CTRL + Coffee has the perfect balance of good wifi, great drinks, and a productive atmosphere!\"", name: "Dian Kartika", role: "Content Creator" }
+    const testimonialItemsData = [ 
+      { avatar: "/api/placeholder/80/80?text=R&bg=2E6659&fg=FFFFFF", text: "\"CTRL + Coffee is my coding sanctuary! The Ice Matcha Latte keeps me energized through late-night debugging sessions. Best coffee spot for tech enthusiasts!\"", name: "Rina Wijaya", role: "Software Developer" },
+      { avatar: "/api/placeholder/80/80?text=B&bg=2E6659&fg=FFFFFF", text: "\"Their Ice Lava Pink is not just Instagram-worthy but absolutely delicious! The staff knows my order before I even reach the counter. Love the tech-vibe here!\"", name: "Budi Santoso", role: "UI/UX Designer" },
+      { avatar: "/api/placeholder/80/80?text=D&bg=2E6659&fg=FFFFFF", text: "\"As a digital nomad, I've tried coffee shops all over Indonesia. CTRL + Coffee has the perfect balance of good wifi, great drinks, and a productive atmosphere!\"", name: "Dian Kartika", role: "Content Creator" }
     ];
     let currentTestimonial = 0;
     
     function showTestimonial(index) {
       const testimonialContainer = document.querySelector('.testimonial-item');
-      if (!testimonialContainer) return; // Guard clause
+      if (!testimonialContainer || testimonialItemsData.length === 0) return; 
       const testimonial = testimonialItemsData[index];
       
       testimonialContainer.innerHTML = `
@@ -1516,9 +1572,9 @@
       `;
       dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     }
-    if (dots.length > 0) showTestimonial(0); // Initial call
+    if (dots.length > 0) showTestimonial(0); 
 
-    setInterval(() => {
+    const testimonialInterval = setInterval(() => {
       if (testimonialItemsData.length === 0) return;
       currentTestimonial = (currentTestimonial + 1) % testimonialItemsData.length;
       showTestimonial(currentTestimonial);
@@ -1528,6 +1584,7 @@
       dot.addEventListener('click', () => {
         currentTestimonial = index;
         showTestimonial(currentTestimonial);
+        clearInterval(testimonialInterval); // Optional: reset interval on manual click
       });
     });
 
@@ -1563,11 +1620,15 @@
 
         if (cart.length === 0) {
             cartEmptyMessage.style.display = 'block';
-            customerDetailsSection.style.display = 'none'; // Hide form if cart is empty
+            customerDetailsSection.style.display = 'none'; 
             checkoutViaWhatsAppBtn.disabled = true;
+            cartItemsList.style.display = 'none'; // Hide the list itself
+            document.querySelector('.cart-summary').style.display = 'none'; // Hide total if cart is empty
         } else {
             cartEmptyMessage.style.display = 'none';
-            customerDetailsSection.style.display = 'block'; // Show form
+            cartItemsList.style.display = 'block'; // Show the list
+            customerDetailsSection.style.display = 'block'; 
+            document.querySelector('.cart-summary').style.display = 'block'; // Show total
             checkoutViaWhatsAppBtn.disabled = false;
 
             cart.forEach(item => {
@@ -1586,11 +1647,11 @@
                     </div>
                     <div class="cart-item-quantity">
                         <button class="quantity-btn minus-btn" data-id="${item.id}">-</button>
-                        <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
+                        <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}" aria-label="Item Quantity">
                         <button class="quantity-btn plus-btn" data-id="${item.id}">+</button>
                     </div>
                     <p class="cart-item-subtotal">${formatCurrency(itemSubtotal)}</p>
-                    <button class="remove-item-btn" data-id="${item.id}"><i class="fa-solid fa-trash"></i></button>
+                    <button class="remove-item-btn" data-id="${item.id}" aria-label="Remove item"><i class="fa-solid fa-trash"></i></button>
                 `;
                 cartItemsList.appendChild(cartItemDiv);
             });
@@ -1610,16 +1671,29 @@
             cart.push({ id, name, price, image, quantity: 1 });
         }
         renderCart();
-        // Optionally show a small notification
-        // alert(`${name} added to cart!`); 
+        // Simple visual feedback
+        const cartIconEl = document.getElementById('cartIcon');
+        cartIconEl.classList.add('shake');
+        setTimeout(() => cartIconEl.classList.remove('shake'), 300);
     }
+    // CSS for shake animation (add this inside a <style> tag or your CSS file)
+    // @keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(5px); } 50% { transform: translateX(-5px); } 75% { transform: translateX(5px); } 100% { transform: translateX(0); } }
+    // .shake { animation: shake 0.3s ease-in-out; }
+    // (Adding this animation directly in JS for simplicity here if not already in CSS)
+    if (!document.querySelector('style#cart-animations')) {
+        const styleSheet = document.createElement("style");
+        styleSheet.id = "cart-animations";
+        styleSheet.innerText = `@keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(5px); } 50% { transform: translateX(-5px); } 75% { transform: translateX(5px); } 100% { transform: translateX(0); } } .shake { animation: shake 0.3s ease-in-out; }`;
+        document.head.appendChild(styleSheet);
+    }
+
 
     function updateCartItemQuantity(id, quantity) {
         const itemInCart = cart.find(item => item.id === id);
         if (itemInCart) {
             itemInCart.quantity = quantity;
             if (itemInCart.quantity <= 0) {
-                removeItemFromCart(id); // Remove if quantity is 0 or less
+                removeItemFromCart(id); 
             } else {
                 renderCart();
             }
@@ -1631,10 +1705,9 @@
         renderCart();
     }
 
-    // Event Listeners for Cart
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Already handled by general nav link handler, but good practice
             const menuItem = e.target.closest('.menu-item');
             const id = menuItem.dataset.id;
             const name = menuItem.dataset.name;
@@ -1646,17 +1719,19 @@
 
     cartItemsList.addEventListener('click', (e) => {
         const target = e.target;
-        const id = target.dataset.id;
+        const buttonClicked = target.closest('button'); // Get the button element
+        if (!buttonClicked) return; // Exit if click wasn't on or inside a button
 
-        if (target.classList.contains('plus-btn')) {
+        const id = buttonClicked.dataset.id;
+
+        if (buttonClicked.classList.contains('plus-btn')) {
             const item = cart.find(i => i.id === id);
             if (item) updateCartItemQuantity(id, item.quantity + 1);
-        } else if (target.classList.contains('minus-btn')) {
+        } else if (buttonClicked.classList.contains('minus-btn')) {
             const item = cart.find(i => i.id === id);
             if (item && item.quantity > 0) updateCartItemQuantity(id, item.quantity - 1);
-        } else if (target.classList.contains('remove-item-btn') || target.closest('.remove-item-btn')) {
-            const actualId = target.dataset.id || target.closest('.remove-item-btn').dataset.id;
-            removeItemFromCart(actualId);
+        } else if (buttonClicked.classList.contains('remove-item-btn')) {
+            removeItemFromCart(id);
         }
     });
 
@@ -1664,70 +1739,76 @@
         if (e.target.classList.contains('quantity-input')) {
             const id = e.target.dataset.id;
             const newQuantity = parseInt(e.target.value);
-            if (!isNaN(newQuantity) && newQuantity >= 0) { // Allow 0 to trigger removal
+            if (!isNaN(newQuantity) && newQuantity >= 0) { 
                  updateCartItemQuantity(id, newQuantity);
-            } else { // Reset if invalid input
+            } else { 
                 renderCart();
             }
         }
     });
 
-    cartIcon.addEventListener('click', () => {
-        renderCart(); // Ensure cart is up-to-date when opening
-        cartModal.classList.add('show');
-    });
-
-    closeCartModalBtn.addEventListener('click', () => cartModal.classList.remove('show'));
-    continueShoppingBtn.addEventListener('click', () => cartModal.classList.remove('show'));
-
-    cartModal.addEventListener('click', (e) => {
-        if (e.target === cartModal) { // Click on modal backdrop
-            cartModal.classList.remove('show');
-        }
-    });
-
-    cartOrderForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (cart.length === 0) {
-            alert('Your cart is empty. Please add items to order.');
-            return;
-        }
-
-        const customerName = document.getElementById('customerName').value;
-        const customerAddress = document.getElementById('customerAddress').value;
-        const customerPaymentMethod = document.getElementById('customerPaymentMethod').value;
-        const customerNotes = document.getElementById('customerNotes').value;
-
-        let message = `Halo CTRL + Coffee, saya ingin memesan:\n\n`;
-        message += `*Detail Pemesan:*\n`;
-        message += `Nama: ${customerName}\n`;
-        message += `Alamat: ${customerAddress}\n`;
-        message += `Metode Pembayaran: ${customerPaymentMethod}\n`;
-        if (customerNotes) message += `Catatan: ${customerNotes}\n`;
-        message += `\n*Pesanan:*\n`;
-
-        let grandTotal = 0;
-        cart.forEach(item => {
-            const subtotal = item.price * item.quantity;
-            grandTotal += subtotal;
-            message += `- ${item.name} (${item.quantity} x ${formatCurrency(item.price)}) = ${formatCurrency(subtotal)}\n`;
+    if(cartIcon) {
+        cartIcon.addEventListener('click', () => {
+            renderCart(); 
+            cartModal.classList.add('show');
         });
+    }
 
-        message += `\n*Total Keseluruhan: ${formatCurrency(grandTotal)}*\n\n`;
-        message += `Mohon konfirmasi pesanan saya. Terima kasih!`;
 
-        const whatsappNumber = '+6285123669171'; // Your WhatsApp number
-        const encodedMessage = encodeURIComponent(message);
-        window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+    if(closeCartModalBtn) closeCartModalBtn.addEventListener('click', () => cartModal.classList.remove('show'));
+    if(continueShoppingBtn) continueShoppingBtn.addEventListener('click', () => cartModal.classList.remove('show'));
 
-        // Clear cart and form, then close modal
-        cart = [];
-        cartOrderForm.reset();
-        renderCart();
-        cartModal.classList.remove('show');
-    });
+    if(cartModal) {
+        cartModal.addEventListener('click', (e) => {
+            if (e.target === cartModal) { 
+                cartModal.classList.remove('show');
+            }
+        });
+    }
 
-    // Initial render of cart from localStorage
+
+    if(cartOrderForm) {
+        cartOrderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items to order.');
+                return;
+            }
+
+            const customerName = document.getElementById('customerName').value;
+            const customerAddress = document.getElementById('customerAddress').value;
+            const customerPaymentMethod = document.getElementById('customerPaymentMethod').value;
+            const customerNotes = document.getElementById('customerNotes').value;
+
+            let message = `Halo CTRL + Coffee, saya ingin memesan:\n\n`;
+            message += `*Detail Pemesan:*\n`;
+            message += `Nama: ${customerName}\n`;
+            message += `Alamat: ${customerAddress}\n`;
+            message += `Metode Pembayaran: ${customerPaymentMethod}\n`;
+            if (customerNotes) message += `Catatan: ${customerNotes}\n`;
+            message += `\n*Pesanan:*\n`;
+
+            let grandTotal = 0;
+            cart.forEach(item => {
+                const subtotal = item.price * item.quantity;
+                grandTotal += subtotal;
+                message += `- ${item.name} (${item.quantity} x ${formatCurrency(item.price)}) = ${formatCurrency(subtotal)}\n`;
+            });
+
+            message += `\n*Total Keseluruhan: ${formatCurrency(grandTotal)}*\n\n`;
+            message += `Mohon konfirmasi pesanan saya. Terima kasih!`;
+
+            const whatsappNumber = '+6285123669171'; 
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+
+            cart = [];
+            cartOrderForm.reset();
+            renderCart();
+            cartModal.classList.remove('show');
+        });
+    }
+
     renderCart();
 
   </script>
