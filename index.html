@@ -12,17 +12,16 @@
       --accent: #2E6659;
       --light: #FFFFFF;
       --gray: #F1F1F1;
-      --green-order: #25D366; /* Used for product card buttons */
-      --green-hover: #20B857; /* Used for product card buttons hover */
+      --green-order: #25D366; 
+      --green-hover: #20B857; 
       
-      /* Themed Modal Colors */
-      --orange-accent-color: #FFA726; /* Brighter Orange for accents */
+      --orange-accent-color: #FFA726; 
       --modal-bg-themed: var(--light);
       --modal-text-themed: var(--primary);
-      --modal-subtext-themed: #4A5568; /* Darker gray for subtext on light bg */
-      --modal-border-themed: #CBD5E0; /* Light gray border for elements */
+      --modal-subtext-themed: #4A5568; 
+      --modal-border-themed: #CBD5E0; 
       
-      --modal-input-bg-themed: #F7FAFC; /* Very light gray for inputs */
+      --modal-input-bg-themed: #F7FAFC; 
       --modal-input-border-themed: var(--accent);
       --modal-input-text-themed: var(--primary);
       --modal-input-placeholder-themed: #A0AEC0;
@@ -34,12 +33,11 @@
       --modal-btn-secondary-bg-themed: var(--light);
       --modal-btn-secondary-text-themed: var(--accent);
       --modal-btn-secondary-border-themed: var(--accent);
-      --modal-btn-secondary-hover-bg-themed: #EDF2F7; /* Light green-ish tint for hover */
+      --modal-btn-secondary-hover-bg-themed: #EDF2F7; 
       --modal-btn-secondary-hover-text-themed: var(--primary);
 
-
-      --modal-btn-disabled-bg-themed: #A3C1AD; /* Light, muted green for disabled */
-      --modal-btn-disabled-text-themed: #E2E8F0; /* Light text for disabled */
+      --modal-btn-disabled-bg-themed: #A3C1AD; 
+      --modal-btn-disabled-text-themed: #E2E8F0; 
     }
 
     * {
@@ -104,11 +102,6 @@
       font-size: 22px;
     }
 
-    .logo img {
-      max-height: 40px;
-      width: auto;
-    }
-
     .nav-links {
       display: flex;
       gap: 30px;
@@ -163,7 +156,7 @@
         position: absolute;
         top: -8px;
         right: -10px;
-        background-color: var(--orange-accent-color); /* Changed to orange */
+        background-color: var(--orange-accent-color); 
         color: var(--light);
         border-radius: 50%;
         padding: 2px 6px;
@@ -354,7 +347,7 @@
       font-size: 14px;
       color: #666;
       margin-bottom: 15px;
-      height: 40px; /* Ensures consistent height */
+      height: 40px; 
     }
 
     .menu-item p.price {
@@ -379,7 +372,7 @@
       transition: all 0.3s ease;
       width: 100%;
       cursor: pointer;
-      border: none; /* remove default border */
+      border: none; 
     }
 
     .order-button:hover {
@@ -390,7 +383,7 @@
 
     .menu-item:hover {
       transform: translateY(-10px); 
-      box-shadow: 0 20px 40px rgba(46, 102, 89, 0.15); /* Shadow with accent color hint */
+      box-shadow: 0 20px 40px rgba(46, 102, 89, 0.15); 
     }
 
     .menu-item:hover h3 {
@@ -687,12 +680,6 @@
       }
     }
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0px); }
-    }
-
     /* BACK TO TOP */
     .back-to-top {
       position: fixed;
@@ -733,7 +720,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.6); /* Slightly less opaque */
+      background-color: rgba(0, 0, 0, 0.6); 
       z-index: 1050;
       overflow-y: auto; 
       align-items: center;
@@ -749,7 +736,7 @@
       background-color: var(--modal-bg-themed);
       border-radius: 15px;
       width: 100%;
-      padding: 25px; /* Slightly reduced padding */
+      padding: 25px; 
       position: relative;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       animation: modalFadeIn 0.3s ease;
@@ -762,7 +749,6 @@
     .cart-modal-content { 
         max-width: 700px; 
     }
-
 
     @keyframes modalFadeIn {
       from {
@@ -785,13 +771,13 @@
     }
 
     .modal-title {
-      font-size: 22px; /* Slightly smaller */
+      font-size: 22px; 
       font-weight: 700;
       color: var(--modal-text-themed);
-      margin: 0; /* Remove default margin */
+      margin: 0; 
     }
 
-    .modal-subtitle { /* For form section title */
+    .modal-subtitle { 
       font-size: 18px;
       font-weight: 600;
       color: var(--modal-text-themed);
@@ -802,18 +788,17 @@
         background: none;
         border: none;
         font-size: 28px;
-        color: var(--orange-accent-color); /* Orange */
+        color: var(--orange-accent-color); 
         cursor: pointer;
         padding: 0;
         line-height: 1;
     }
     .close-modal-btn:hover {
-        color: var(--primary); /* Darker on hover */
+        color: var(--primary); 
     }
 
-
     .form-group {
-      margin-bottom: 18px; /* Slightly reduced */
+      margin-bottom: 18px; 
     }
 
     .form-label {
@@ -821,12 +806,12 @@
       font-size: 14px;
       font-weight: 500;
       color: var(--modal-text-themed);
-      margin-bottom: 6px; /* Slightly reduced */
+      margin-bottom: 6px; 
     }
 
     .form-control {
       width: 100%;
-      padding: 10px 12px; /* Slightly reduced padding */
+      padding: 10px 12px; 
       background-color: var(--modal-input-bg-themed);
       border: 1px solid var(--modal-input-border-themed);
       border-radius: 8px;
@@ -836,8 +821,8 @@
     }
 
     .form-control:focus {
-      border-color: var(--primary); /* Darker green on focus */
-      box-shadow: 0 0 0 3px rgba(46, 102, 89, 0.15); /* Accent color shadow */
+      border-color: var(--primary); 
+      box-shadow: 0 0 0 3px rgba(46, 102, 89, 0.15); 
       outline: none;
     }
 
@@ -854,24 +839,23 @@
       display: flex;
       justify-content: flex-end;
       gap: 15px;
-      margin-top: 25px; /* Slightly reduced */
+      margin-top: 25px; 
       border-top: 1px solid var(--modal-border-themed); 
       padding-top: 20px; 
     }
 
-    .btn { /* General button styling, can be overridden */
-      padding: 10px 20px; /* Slightly smaller buttons */
+    .btn { 
+      padding: 10px 20px; 
       border-radius: 8px;
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
       border: none;
-      text-decoration: none; /* Ensure no underline for <a> tags styled as buttons */
+      text-decoration: none; 
     }
 
-    /* Themed Buttons for Modal */
-    .btn-modal-secondary { /* Continue Shopping, Cancel */
+    .btn-modal-secondary { 
       background-color: var(--modal-btn-secondary-bg-themed);
       color: var(--modal-btn-secondary-text-themed);
       border: 1px solid var(--modal-btn-secondary-border-themed);
@@ -882,10 +866,10 @@
       border-color: var(--modal-btn-secondary-hover-text-themed);
     }
 
-    .btn-modal-primary { /* Checkout */
+    .btn-modal-primary { 
       background-color: var(--modal-btn-primary-bg-themed);
       color: var(--modal-btn-primary-text-themed);
-      box-shadow: 0 4px 10px rgba(46, 102, 89, 0.2); /* Shadow with accent color */
+      box-shadow: 0 4px 10px rgba(46, 102, 89, 0.2); 
     }
     .btn-modal-primary:hover {
       background-color: var(--modal-btn-primary-hover-bg-themed);
@@ -900,34 +884,41 @@
         transform: none;
     }
 
-
     .whatsapp-icon {
       margin-right: 8px;
     }
 
     /* CART SPECIFIC STYLES */
     .cart-items-list {
-        flex-grow: 1; /* Takes available space */
-        overflow-y: auto; /* Scrolls if content overflows */
+        flex-grow: 1; 
+        overflow-y: auto; 
         margin-bottom: 20px;
-        padding-right: 5px; /* Space for scrollbar, less intrusive */
+        padding-right: 5px; 
+        min-height: 100px; /* Ensure it has some base height, especially on mobile */
     }
     .cart-item {
-        display: flex;
+        display: flex; /* Default for desktop: items in a row */
         align-items: center;
-        padding: 15px 5px; /* Adjust padding */
+        padding: 15px 5px; 
         border-bottom: 1px solid var(--modal-border-themed);
         gap: 15px;
     }
     .cart-item:last-child {
         border-bottom: none;
     }
+
+    /* Row wrappers for mobile, not used by default on desktop */
+    .cart-item-row-1, .cart-item-row-2 {
+        display: contents; /* Act as if they are not there on desktop */
+    }
+
     .cart-item-image {
         width: 60px;
         height: 60px;
         object-fit: cover;
         border-radius: 8px;
         border: 1px solid var(--modal-border-themed);
+        flex-shrink: 0;
     }
     .cart-item-details {
         flex-grow: 1;
@@ -936,14 +927,14 @@
         font-size: 16px;
         font-weight: 600;
         color: var(--modal-text-themed);
-        margin: 0 0 3px 0; /* Reduced bottom margin */
+        margin: 0 0 3px 0; 
     }
     .cart-item-price {
         font-size: 14px;
         color: var(--modal-subtext-themed);
         margin: 0;
     }
-    .cart-item-quantity {
+    .cart-item-quantity-controls { /* Desktop: direct child of cart-item */
         display: flex;
         align-items: center;
     }
@@ -959,7 +950,7 @@
         transition: background-color 0.2s;
     }
     .quantity-btn:hover {
-        background-color: var(--modal-btn-secondary-hover-bg-themed); /* Light green tint */
+        background-color: var(--modal-btn-secondary-hover-bg-themed); 
     }
     .quantity-input {
         width: 40px;
@@ -977,34 +968,35 @@
         -webkit-appearance: none;
         margin: 0;
     }
-    .cart-item-subtotal {
+    .cart-item-subtotal { /* Desktop: direct child of cart-item */
         font-size: 15px;
         font-weight: 600;
         color: var(--modal-text-themed);
         min-width: 80px; 
         text-align: right;
     }
-    .remove-item-btn {
+    .remove-item-btn { /* Desktop: direct child of cart-item */
         background: none;
         border: none;
-        color: var(--orange-accent-color); /* Orange */
-        font-size: 20px; /* Slightly larger */
+        color: var(--orange-accent-color); 
+        font-size: 20px; 
         cursor: pointer;
         padding: 5px;
         line-height: 1;
     }
     .remove-item-btn:hover {
-        color: #E57A00; /* Darker Orange */
+        color: #E57A00; 
     }
+
     #cartEmptyMessage {
-        padding: 40px 0; /* More padding */
+        padding: 40px 0; 
         text-align: center;
         font-size: 16px;
         color: var(--modal-subtext-themed);
     }
     .cart-summary {
-        margin-top: 10px; /* Reduced margin */
-        padding-top: 15px; /* Reduced padding */
+        margin-top: 10px; 
+        padding-top: 15px; 
         border-top: 1px solid var(--modal-border-themed);
         text-align: right;
     }
@@ -1015,224 +1007,130 @@
     }
     .customer-details-form {
         margin-top: 20px;
-        padding-top: 0; /* No top padding, header has bottom border */
-        /* border-top: 1px solid var(--modal-border-themed); */ /* Removed, modal-header has border now */
+        padding-top: 0; 
     }
 
 
     /* Mobile Styles - Enhanced for better auto layout */
-    @media (max-width: 992px) {
+    @media (max-width: 992px) { /* Tablet and below */
       .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Slightly smaller minmax for tablets */
       }
-      
-      .hero h1 {
-        font-size: 48px;
-      }
-      
-      .about-container {
-        flex-direction: column;
-      }
-      
-      .about-image {
-        width: 100%;
-        margin-bottom: 30px;
-      }
+      .hero h1 { font-size: 48px; }
+      .about-container { flex-direction: column; }
+      .about-image { width: 100%; margin-bottom: 30px; }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 768px) { /* Mobile specific layout */
       .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background: var(--light);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: right 0.3s ease;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        z-index: 1001;
-        padding: 50px 0;
+        position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
+        background: var(--light); flex-direction: column; align-items: center;
+        justify-content: center; transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1); z-index: 1001; padding: 50px 0;
       }
-
-      .nav-links.active {
-        right: 0;
-      }
-
-      .nav-links a {
-        font-size: 18px;
-        margin: 15px 0;
-      }
-      
-      .nav-actions { 
-        display: flex; 
-        align-items: center;
-        gap: 15px; 
-      }
-      .mobile-menu {
-        display: block;
-        z-index: 1002; 
-      }
-       .cart-icon-wrapper {
-        font-size: 20px; 
-      }
-      .cart-item-count {
-        top: -6px;
-        right: -8px;
-        font-size: 9px;
-        padding: 1px 5px;
-        min-width: 16px;
-      }
-
-
+      .nav-links.active { right: 0; }
+      .nav-links a { font-size: 18px; margin: 15px 0; }
+      .nav-actions { display: flex; align-items: center; gap: 15px; }
+      .mobile-menu { display: block; z-index: 1002; }
+      .cart-icon-wrapper { font-size: 20px; }
+      .cart-item-count { top: -6px; right: -8px; font-size: 9px; padding: 1px 5px; min-width: 16px; }
       .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1000;
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5); opacity: 0; visibility: hidden;
+        transition: all 0.3s ease; z-index: 1000;
       }
+      .overlay.active { opacity: 1; visibility: visible; }
+      .logo { font-size: 22px; }
+      .hero { padding: 150px 20px 100px; min-height: 500px; }
+      .hero h1 { font-size: 40px; }
+      .hero p { font-size: 18px; }
+      .cta-button { padding: 12px 30px; font-size: 14px; }
+      .section-title { font-size: 36px; }
+      .menu-grid { grid-template-columns: 1fr; gap: 30px; }
+      .menu-item { max-width: 100%; }
+      .about-features { grid-template-columns: 1fr; }
+      .footer-container { flex-direction: column; gap: 30px; }
+      .footer-column { width: 100%; }
 
-      .overlay.active {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .logo {
-        font-size: 22px;
-      }
-
-      .hero {
-        padding: 150px 20px 100px;
-        min-height: 500px;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .hero p {
-        font-size: 18px;
-      }
-
-      .cta-button {
-        padding: 12px 30px;
-        font-size: 14px;
-      }
-
-      .section-title {
-        font-size: 36px;
-      }
-
-      .menu-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .menu-item {
-        max-width: 100%;
-      }
+      .cart-modal-content { max-width: 95%; padding: 15px; }
+      .modal-title { font-size: 20px; }
       
-      .about-features {
-        grid-template-columns: 1fr;
-      }
+      .cart-items-list { min-height: 150px; /* Explicit min-height for mobile */ }
 
-      .footer-container {
-        flex-direction: column;
-        gap: 30px;
-      }
-
-      .footer-column {
-        width: 100%;
-      }
-
-      .cart-modal-content {
-        max-width: 95%;
-        padding: 15px; /* Reduced padding for mobile */
-      }
-      .modal-title {
-        font-size: 20px;
-      }
       .cart-item {
-        flex-wrap: wrap; 
-        gap: 10px;
-        padding: 10px 0;
+          flex-direction: column; /* Stack everything in the item vertically */
+          align-items: stretch; /* Make children take full width by default */
+          gap: 10px;
       }
-      .cart-item-image { width: 50px; height: 50px;}
-      .cart-item-details { order: 1; flex-basis: calc(100% - 60px); } 
-      .cart-item-image { order: 0; }
-      .cart-item-quantity { order: 2; flex-basis: 55%; } /* Adjusted width */
-      .cart-item-subtotal { order: 3; flex-basis: 35%; text-align: right; font-size: 14px; } /* Adjusted width */
-      .remove-item-btn { order: 4; flex-basis: 100%; text-align: right; margin-top: 5px; padding: 0 5px 5px 5px; font-size: 18px; }
-
-      .modal-footer {
-        flex-direction: column;
-        gap: 10px;
+      .cart-item-row-1 { /* Image and details side-by-side */
+          display: flex;
+          align-items: center;
+          width: 100%;
+          gap: 10px;
       }
-      .modal-footer .btn {
-        width: 100%;
-        font-size: 14px; /* Slightly smaller button text on mobile */
-        padding: 12px 15px; /* Adjust padding for better tap */
+      .cart-item-image {
+          width: 50px;
+          height: 50px;
+          flex-shrink: 0;
       }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 32px;
+      .cart-item-details {
+          flex-grow: 1;
       }
-
-      .hero p {
-        font-size: 16px;
-        padding: 0 10px;
-      }
-
-      .section-title {
-        font-size: 28px;
-      }
+      .cart-item-name { font-size: 15px; }
+      .cart-item-price { font-size: 13px; }
       
-      .menu-item-content {
-        padding: 20px;
+      .cart-item-row-2 { /* Quantity and subtotal side-by-side */
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          margin-top: 5px; /* Space between rows */
+          gap: 10px;
       }
-
-      .testimonial-item {
-        padding: 20px 15px;
-        margin: 10px;
+      .cart-item-quantity-controls { /* Renamed for clarity in mobile context */
+          display: flex;
+          align-items: center;
       }
-
-      .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
+      .quantity-input { width: 35px; padding: 4px; }
+      .quantity-btn { width: 24px; height: 24px; font-size: 14px; }
+      .cart-item-subtotal {
+          font-size: 14px;
+          font-weight: 600;
+          text-align: right;
       }
-      
-      .hero-content {
-        padding: 0 10px;
-      }
-      .modal-content {
-          padding: 15px; /* Further reduce padding on very small screens */
-      }
-      .modal-title {
+      .remove-item-btn { /* Will be full width due to parent's align-items:stretch */
+          margin-top: 8px; /* Space above remove button */
+          text-align: right; /* Align icon to the right */
+          padding: 5px 0; /* Adjust padding */
           font-size: 18px;
       }
-      .form-label {
-          font-size: 13px;
-      }
-      .form-control {
-          font-size: 14px;
-          padding: 8px 10px;
-      }
-      .btn { /* Modal buttons on very small screens */
-          font-size: 14px;
-          padding: 10px 15px;
-      }
+      .remove-item-btn i { display: inline-block; } /* Ensure icon is treated as block for alignment */
+
+
+      .modal-footer { flex-direction: column; gap: 10px; }
+      .modal-footer .btn { width: 100%; font-size: 14px; padding: 12px 15px; }
+    }
+
+    @media (max-width: 480px) { /* Very small mobile screens */
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; padding: 0 10px; }
+      .section-title { font-size: 28px; }
+      .menu-item-content { padding: 20px; }
+      .testimonial-item { padding: 20px 15px; margin: 10px; }
+      .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
+      .hero-content { padding: 0 10px; }
+      .modal-content { padding: 15px; }
+      .modal-title { font-size: 18px; }
+      .form-label { font-size: 13px; }
+      .form-control { font-size: 14px; padding: 8px 10px; }
+      .btn { font-size: 14px; padding: 10px 15px; }
+
+      .cart-item-image { width: 45px; height: 45px; } /* Slightly smaller image */
+      .cart-item-name { font-size: 14px; }
+      .cart-item-price { font-size: 12px; }
+      .cart-item-row-2 { flex-wrap: wrap; justify-content: flex-start;} /* Allow quantity/subtotal to wrap */
+      .cart-item-quantity-controls { margin-bottom: 5px; }
+      .cart-item-subtotal { width: 100%; text-align: left; margin-top: 5px; } /* Subtotal below quantity */
     }
   </style>
 </head>
@@ -1276,37 +1174,37 @@
     <div class="container">
       <h2 class="section-title">Our Signature Drinks</h2>
       <div class="menu-grid">
-        <div class="menu-item" data-id="ice-ctrl-coffee" data-name="Ice CTRL+ Coffee" data-price="10000" data-image="/api/placeholder/60/60?text=Ice+CTRL&bg=2E6659&fg=FFFFFF">
+        <div class="menu-item" data-id="ice-ctrl-coffee" data-name="Ice CTRL+ Coffee" data-price="10000" data-image="/api/placeholder/60/60?text=CTRL&bg=2E6659&fg=FFFFFF">
           <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+CTRL+Coffee&bg=1A3C34&fg=FFFFFF');"></div>
           <div class="menu-item-content">
             <h3>Ice CTRL+ Coffee</h3>
             <div class="menu-item-desc">Our signature cold brew with a hint of vanilla.</div>
             <p class="price">Rp10.000</p>
-            <a href="#" class="order-button add-to-cart-btn">
+            <button class="order-button add-to-cart-btn">
               <i class="fa-solid fa-cart-plus"></i> Add to Cart
-            </a>
+            </button>
           </div>
         </div>
-        <div class="menu-item" data-id="ice-lemon-rock" data-name="Ice Lemon Rock" data-price="12000" data-image="/api/placeholder/60/60?text=Lemon+Rock&bg=2E6659&fg=FFFFFF">
+        <div class="menu-item" data-id="ice-lemon-rock" data-name="Ice Lemon Rock" data-price="12000" data-image="/api/placeholder/60/60?text=Lemon&bg=2E6659&fg=FFFFFF">
           <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+Lemon+Rock&bg=1A3C34&fg=FFFFFF');"></div>
           <div class="menu-item-content">
             <h3>Ice Lemon Rock</h3>
             <div class="menu-item-desc">Refreshing lemon soda with mint and basil notes.</div>
             <p class="price">Rp12.000</p>
-            <a href="#" class="order-button add-to-cart-btn">
+            <button class="order-button add-to-cart-btn">
               <i class="fa-solid fa-cart-plus"></i> Add to Cart
-            </a>
+            </button>
           </div>
         </div>
-        <div class="menu-item" data-id="ice-chocolatte" data-name="Ice Chocolatte" data-price="10000" data-image="/api/placeholder/60/60?text=Chocolatte&bg=2E6659&fg=FFFFFF">
+        <div class="menu-item" data-id="ice-chocolatte" data-name="Ice Chocolatte" data-price="10000" data-image="/api/placeholder/60/60?text=Choco&bg=2E6659&fg=FFFFFF">
           <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+Chocolatte&bg=1A3C34&fg=FFFFFF');"></div>
           <div class="menu-item-content">
             <h3>Ice Chocolatte</h3>
             <div class="menu-item-desc">Premium chocolate with creamy milk and ice.</div>
             <p class="price">Rp10.000</p>
-            <a href="#" class="order-button add-to-cart-btn">
+            <button class="order-button add-to-cart-btn">
               <i class="fa-solid fa-cart-plus"></i> Add to Cart
-            </a>
+            </button>
           </div>
         </div>
         <div class="menu-item" data-id="ice-matcha-latte" data-name="Ice Matcha Latte" data-price="15000" data-image="/api/placeholder/60/60?text=Matcha&bg=2E6659&fg=FFFFFF">
@@ -1315,20 +1213,20 @@
             <h3>Ice Matcha Latte</h3>
             <div class="menu-item-desc">Authentic Japanese matcha with creamy milk.</div>
             <p class="price">Rp15.000</p>
-            <a href="#" class="order-button add-to-cart-btn">
+            <button class="order-button add-to-cart-btn">
               <i class="fa-solid fa-cart-plus"></i> Add to Cart
-            </a>
+            </button>
           </div>
         </div>
-        <div class="menu-item" data-id="ice-lava-pink" data-name="Ice Lava Pink" data-price="15000" data-image="/api/placeholder/60/60?text=Lava+Pink&bg=FFA726&fg=FFFFFF">
+        <div class="menu-item" data-id="ice-lava-pink" data-name="Ice Lava Pink" data-price="15000" data-image="/api/placeholder/60/60?text=Lava&bg=FFA726&fg=FFFFFF">
           <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+Lava+Pink&bg=FFA726&fg=1A3C34');"></div>
           <div class="menu-item-content">
             <h3>Ice Lava Pink</h3>
             <div class="menu-item-desc">Exotic dragon fruit blend with a hint of coconut.</div>
             <p class="price">Rp15.000</p>
-            <a href="#" class="order-button add-to-cart-btn">
+            <button class="order-button add-to-cart-btn">
               <i class="fa-solid fa-cart-plus"></i> Add to Cart
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -1455,33 +1353,33 @@
     const navLinks = document.querySelector('.nav-links');
     const overlay = document.querySelector('.overlay');
     
-    mobileMenu.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      overlay.classList.toggle('active');
-      mobileMenu.innerHTML = navLinks.classList.contains('active') 
-        ? '<i class="fa-solid fa-xmark"></i>' 
-        : '<i class="fa-solid fa-bars"></i>';
-    });
-    
-    overlay.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      overlay.classList.remove('active');
-      mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
-    });
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        overlay.classList.toggle('active');
+        mobileMenu.innerHTML = navLinks.classList.contains('active') 
+            ? '<i class="fa-solid fa-xmark"></i>' 
+            : '<i class="fa-solid fa-bars"></i>';
+        });
+    }
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        overlay.classList.remove('active');
+        if (mobileMenu) mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        });
+    }
+
 
     // Scroll Animation for Menu Items
     const menuItemsElements = document.querySelectorAll('.menu-item'); 
     
     function checkScroll() {
       const triggerBottom = window.innerHeight * 0.8;
-      
       menuItemsElements.forEach((menuItemEl, index) => { 
         const menuTop = menuItemEl.getBoundingClientRect().top;
-        
         if (menuTop < triggerBottom) {
-          setTimeout(() => {
-            menuItemEl.classList.add('visible');
-          }, index * 100);
+          setTimeout(() => { menuItemEl.classList.add('visible'); }, index * 100);
         }
       });
     }
@@ -1490,60 +1388,60 @@
     const backToTopBtn = document.querySelector('.back-to-top');
     
     function scrollFunction() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
+      if (backToTopBtn) {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
       }
-      
-      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        document.getElementById('header').classList.add('scrolled');
-      } else {
-        document.getElementById('header').classList.remove('scrolled');
+      const header = document.getElementById('header');
+      if (header) {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
       }
       checkScroll();
     }
     
     window.addEventListener('scroll', scrollFunction);
-    checkScroll();
-    scrollFunction();
-    
-    backToTopBtn.addEventListener('click', () => {
-      document.body.scrollTop = 0; 
-      document.documentElement.scrollTop = 0; 
-    });
-    
+    checkScroll(); // Initial check
+    scrollFunction(); // Initial check for header and back-to-top
+
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+        document.body.scrollTop = 0; 
+        document.documentElement.scrollTop = 0; 
+        });
+    }
+
+    // Smooth Scroll for Nav Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
-        // Allow default behavior if it's not just a hash or if it's a cart button etc.
-        if (!targetId.startsWith('#') || targetId === '#' || this.classList.contains('add-to-cart-btn') || this.classList.contains('order-button')) {
-             // Let specific buttons handle their own logic
-            if (!this.classList.contains('add-to-cart-btn') && !this.classList.contains('order-button')) {
-                // If it's a nav link to another page or external, let it proceed
-                if (targetId.includes('.html') || targetId.startsWith('http')) return;
-            } else {
-                 e.preventDefault(); // Prevent default for cart/order buttons if they are <a>
-            }
-        } else {
-             e.preventDefault(); // Prevent default for internal page links
-        }
-
-        // If it's a mobile menu link, close menu
-        if (navLinks.classList.contains('active') && targetId.startsWith('#') && targetId !== '#') {
-            navLinks.classList.remove('active');
-            overlay.classList.remove('active');
-            mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        
+        // Allow default for external links or non-anchor links
+        if (!targetId.startsWith('#') || targetId === '#') {
+          return;
         }
         
-        if (targetId.startsWith('#') && targetId !== '#') {
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              window.scrollTo({
-                top: targetElement.offsetTop - 80, // Adjusted for fixed header
-                behavior: 'smooth'
-              });
-            }
+        e.preventDefault(); // Prevent default only for valid internal anchors
+
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          if (navLinks.classList.contains('active')) { // Close mobile menu if open
+            navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            if (mobileMenu) mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          }
+          
+          window.scrollTo({
+            top: targetElement.offsetTop - (document.getElementById('header')?.offsetHeight || 80),
+            behavior: 'smooth'
+          });
         }
       });
     });
@@ -1556,6 +1454,7 @@
       { avatar: "/api/placeholder/80/80?text=D&bg=2E6659&fg=FFFFFF", text: "\"As a digital nomad, I've tried coffee shops all over Indonesia. CTRL + Coffee has the perfect balance of good wifi, great drinks, and a productive atmosphere!\"", name: "Dian Kartika", role: "Content Creator" }
     ];
     let currentTestimonial = 0;
+    let testimonialInterval;
     
     function showTestimonial(index) {
       const testimonialContainer = document.querySelector('.testimonial-item');
@@ -1564,7 +1463,7 @@
       
       testimonialContainer.innerHTML = `
         <div class="testimonial-avatar">
-          <img src="${testimonial.avatar}" alt="User Avatar">
+          <img src="${testimonial.avatar}" alt="${testimonial.name}'s Avatar">
         </div>
         <p class="testimonial-text">${testimonial.text}</p>
         <h4 class="testimonial-name">${testimonial.name}</h4>
@@ -1572,21 +1471,28 @@
       `;
       dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     }
-    if (dots.length > 0) showTestimonial(0); 
 
-    const testimonialInterval = setInterval(() => {
-      if (testimonialItemsData.length === 0) return;
-      currentTestimonial = (currentTestimonial + 1) % testimonialItemsData.length;
-      showTestimonial(currentTestimonial);
-    }, 5000);
+    function startTestimonialCarousel() {
+        if (testimonialItemsData.length === 0) return;
+        showTestimonial(currentTestimonial); // Show initial
+        testimonialInterval = setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialItemsData.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+    }
+    
+    if (dots.length > 0) {
+        startTestimonialCarousel();
+        dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentTestimonial = index;
+            showTestimonial(currentTestimonial);
+            clearInterval(testimonialInterval); 
+            startTestimonialCarousel(); // Restart interval from current
+        });
+        });
+    }
 
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        currentTestimonial = index;
-        showTestimonial(currentTestimonial);
-        clearInterval(testimonialInterval); // Optional: reset interval on manual click
-      });
-    });
 
     // Shopping Cart Functionality
     const cartModal = document.getElementById('cartModal');
@@ -1601,6 +1507,7 @@
     const checkoutViaWhatsAppBtn = document.getElementById('checkoutViaWhatsAppBtn');
     const cartEmptyMessage = document.getElementById('cartEmptyMessage');
     const customerDetailsSection = document.getElementById('customerDetailsSection');
+    const cartSummarySection = document.querySelector('.cart-summary');
 
 
     let cart = JSON.parse(localStorage.getItem('ctrlCoffeeCart')) || [];
@@ -1614,6 +1521,11 @@
     }
 
     function renderCart() {
+        if (!cartItemsList || !cartTotalPriceEl || !cartItemCountEl || !cartEmptyMessage || !customerDetailsSection || !checkoutViaWhatsAppBtn || !cartSummarySection) {
+            console.error('One or more cart elements are missing from the DOM.');
+            return;
+        }
+
         cartItemsList.innerHTML = '';
         let totalPrice = 0;
         let totalItems = 0;
@@ -1622,13 +1534,13 @@
             cartEmptyMessage.style.display = 'block';
             customerDetailsSection.style.display = 'none'; 
             checkoutViaWhatsAppBtn.disabled = true;
-            cartItemsList.style.display = 'none'; // Hide the list itself
-            document.querySelector('.cart-summary').style.display = 'none'; // Hide total if cart is empty
+            cartItemsList.style.display = 'none'; 
+            cartSummarySection.style.display = 'none'; 
         } else {
             cartEmptyMessage.style.display = 'none';
-            cartItemsList.style.display = 'block'; // Show the list
+            cartItemsList.style.display = 'block'; 
             customerDetailsSection.style.display = 'block'; 
-            document.querySelector('.cart-summary').style.display = 'block'; // Show total
+            cartSummarySection.style.display = 'block'; 
             checkoutViaWhatsAppBtn.disabled = false;
 
             cart.forEach(item => {
@@ -1639,19 +1551,24 @@
                 const cartItemDiv = document.createElement('div');
                 cartItemDiv.classList.add('cart-item');
                 cartItemDiv.dataset.id = item.id;
+                // Updated HTML structure for better mobile layout
                 cartItemDiv.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                    <div class="cart-item-details">
-                        <h4 class="cart-item-name">${item.name}</h4>
-                        <p class="cart-item-price">${formatCurrency(item.price)}</p>
+                    <div class="cart-item-row-1">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-name">${item.name}</h4>
+                            <p class="cart-item-price">${formatCurrency(item.price)}</p>
+                        </div>
                     </div>
-                    <div class="cart-item-quantity">
-                        <button class="quantity-btn minus-btn" data-id="${item.id}">-</button>
-                        <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}" aria-label="Item Quantity">
-                        <button class="quantity-btn plus-btn" data-id="${item.id}">+</button>
+                    <div class="cart-item-row-2">
+                        <div class="cart-item-quantity-controls">
+                            <button class="quantity-btn minus-btn" data-id="${item.id}" aria-label="Decrease quantity">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}" aria-label="Item Quantity">
+                            <button class="quantity-btn plus-btn" data-id="${item.id}" aria-label="Increase quantity">+</button>
+                        </div>
+                        <p class="cart-item-subtotal">${formatCurrency(itemSubtotal)}</p>
                     </div>
-                    <p class="cart-item-subtotal">${formatCurrency(itemSubtotal)}</p>
-                    <button class="remove-item-btn" data-id="${item.id}" aria-label="Remove item"><i class="fa-solid fa-trash"></i></button>
+                    <button class="remove-item-btn" data-id="${item.id}" aria-label="Remove ${item.name} from cart"><i class="fa-solid fa-trash"></i></button>
                 `;
                 cartItemsList.appendChild(cartItemDiv);
             });
@@ -1671,15 +1588,14 @@
             cart.push({ id, name, price, image, quantity: 1 });
         }
         renderCart();
-        // Simple visual feedback
+        
         const cartIconEl = document.getElementById('cartIcon');
-        cartIconEl.classList.add('shake');
-        setTimeout(() => cartIconEl.classList.remove('shake'), 300);
+        if (cartIconEl) {
+            cartIconEl.classList.add('shake');
+            setTimeout(() => cartIconEl.classList.remove('shake'), 300);
+        }
     }
-    // CSS for shake animation (add this inside a <style> tag or your CSS file)
-    // @keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(5px); } 50% { transform: translateX(-5px); } 75% { transform: translateX(5px); } 100% { transform: translateX(0); } }
-    // .shake { animation: shake 0.3s ease-in-out; }
-    // (Adding this animation directly in JS for simplicity here if not already in CSS)
+    
     if (!document.querySelector('style#cart-animations')) {
         const styleSheet = document.createElement("style");
         styleSheet.id = "cart-animations";
@@ -1691,8 +1607,8 @@
     function updateCartItemQuantity(id, quantity) {
         const itemInCart = cart.find(item => item.id === id);
         if (itemInCart) {
-            itemInCart.quantity = quantity;
-            if (itemInCart.quantity <= 0) {
+            itemInCart.quantity = Math.max(0, quantity); // Ensure quantity doesn't go below 0
+            if (itemInCart.quantity === 0) {
                 removeItemFromCart(id); 
             } else {
                 renderCart();
@@ -1707,8 +1623,9 @@
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            e.preventDefault(); // Already handled by general nav link handler, but good practice
+            // e.preventDefault(); // No longer needed here due to button type
             const menuItem = e.target.closest('.menu-item');
+            if (!menuItem) return;
             const id = menuItem.dataset.id;
             const name = menuItem.dataset.name;
             const price = parseInt(menuItem.dataset.price);
@@ -1717,40 +1634,43 @@
         });
     });
 
-    cartItemsList.addEventListener('click', (e) => {
-        const target = e.target;
-        const buttonClicked = target.closest('button'); // Get the button element
-        if (!buttonClicked) return; // Exit if click wasn't on or inside a button
+    if (cartItemsList) {
+        cartItemsList.addEventListener('click', (e) => {
+            const buttonClicked = e.target.closest('button'); 
+            if (!buttonClicked) return; 
 
-        const id = buttonClicked.dataset.id;
+            const id = buttonClicked.dataset.id;
+            if (!id) return;
 
-        if (buttonClicked.classList.contains('plus-btn')) {
-            const item = cart.find(i => i.id === id);
-            if (item) updateCartItemQuantity(id, item.quantity + 1);
-        } else if (buttonClicked.classList.contains('minus-btn')) {
-            const item = cart.find(i => i.id === id);
-            if (item && item.quantity > 0) updateCartItemQuantity(id, item.quantity - 1);
-        } else if (buttonClicked.classList.contains('remove-item-btn')) {
-            removeItemFromCart(id);
-        }
-    });
-
-    cartItemsList.addEventListener('change', (e) => {
-        if (e.target.classList.contains('quantity-input')) {
-            const id = e.target.dataset.id;
-            const newQuantity = parseInt(e.target.value);
-            if (!isNaN(newQuantity) && newQuantity >= 0) { 
-                 updateCartItemQuantity(id, newQuantity);
-            } else { 
-                renderCart();
+            if (buttonClicked.classList.contains('plus-btn')) {
+                const item = cart.find(i => i.id === id);
+                if (item) updateCartItemQuantity(id, item.quantity + 1);
+            } else if (buttonClicked.classList.contains('minus-btn')) {
+                const item = cart.find(i => i.id === id);
+                if (item && item.quantity > 0) updateCartItemQuantity(id, item.quantity - 1); // Will remove if it hits 0
+            } else if (buttonClicked.classList.contains('remove-item-btn')) {
+                removeItemFromCart(id);
             }
-        }
-    });
+        });
+
+        cartItemsList.addEventListener('change', (e) => {
+            if (e.target.classList.contains('quantity-input')) {
+                const id = e.target.dataset.id;
+                const newQuantity = parseInt(e.target.value);
+                if (!isNaN(newQuantity)) { 
+                    updateCartItemQuantity(id, newQuantity);
+                } else { 
+                    renderCart(); // Re-render to reset if input is invalid
+                }
+            }
+        });
+    }
+
 
     if(cartIcon) {
         cartIcon.addEventListener('click', () => {
             renderCart(); 
-            cartModal.classList.add('show');
+            if(cartModal) cartModal.classList.add('show');
         });
     }
 
@@ -1775,10 +1695,10 @@
                 return;
             }
 
-            const customerName = document.getElementById('customerName').value;
-            const customerAddress = document.getElementById('customerAddress').value;
-            const customerPaymentMethod = document.getElementById('customerPaymentMethod').value;
-            const customerNotes = document.getElementById('customerNotes').value;
+            const customerName = document.getElementById('customerName')?.value || '';
+            const customerAddress = document.getElementById('customerAddress')?.value || '';
+            const customerPaymentMethod = document.getElementById('customerPaymentMethod')?.value || '';
+            const customerNotes = document.getElementById('customerNotes')?.value || '';
 
             let message = `Halo CTRL + Coffee, saya ingin memesan:\n\n`;
             message += `*Detail Pemesan:*\n`;
@@ -1805,12 +1725,12 @@
             cart = [];
             cartOrderForm.reset();
             renderCart();
-            cartModal.classList.remove('show');
+            if(cartModal) cartModal.classList.remove('show');
         });
     }
 
-    renderCart();
-
+    renderCart(); // Initial render
+    
   </script>
 </body>
 </html>
