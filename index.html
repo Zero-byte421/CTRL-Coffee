@@ -894,10 +894,10 @@
         overflow-y: auto; 
         margin-bottom: 20px;
         padding-right: 5px; 
-        min-height: 100px; /* Ensure it has some base height, especially on mobile */
+        min-height: 100px; 
     }
-    .cart-item {
-        display: flex; /* Default for desktop: items in a row */
+    .cart-item { /* Default Desktop Layout */
+        display: flex;
         align-items: center;
         padding: 15px 5px; 
         border-bottom: 1px solid var(--modal-border-themed);
@@ -905,11 +905,6 @@
     }
     .cart-item:last-child {
         border-bottom: none;
-    }
-
-    /* Row wrappers for mobile, not used by default on desktop */
-    .cart-item-row-1, .cart-item-row-2 {
-        display: contents; /* Act as if they are not there on desktop */
     }
 
     .cart-item-image {
@@ -922,21 +917,24 @@
     }
     .cart-item-details {
         flex-grow: 1;
+        min-width: 0; /* Important for flex items to shrink properly */
     }
     .cart-item-name {
         font-size: 16px;
         font-weight: 600;
         color: var(--modal-text-themed);
         margin: 0 0 3px 0; 
+        word-break: break-word; /* Allow long names to wrap */
     }
     .cart-item-price {
         font-size: 14px;
         color: var(--modal-subtext-themed);
         margin: 0;
     }
-    .cart-item-quantity-controls { /* Desktop: direct child of cart-item */
+    .cart-item-quantity-controls {
         display: flex;
         align-items: center;
+        flex-shrink: 0; /* Prevent shrinking if possible */
     }
     .quantity-btn {
         background-color: var(--modal-input-bg-themed);
@@ -948,19 +946,21 @@
         font-size: 16px;
         cursor: pointer;
         transition: background-color 0.2s;
+        padding: 0; /* Remove padding for precise sizing */
     }
     .quantity-btn:hover {
         background-color: var(--modal-btn-secondary-hover-bg-themed); 
     }
     .quantity-input {
         width: 40px;
+        height: 28px; /* Match button height */
         text-align: center;
         border: 1px solid var(--modal-input-border-themed);
         background-color: var(--modal-input-bg-themed);
         color: var(--modal-input-text-themed);
         border-radius: 4px;
         margin: 0 5px;
-        padding: 5px;
+        padding: 5px 0; /* Adjust padding */
         -moz-appearance: textfield; 
     }
     .quantity-input::-webkit-outer-spin-button,
@@ -968,14 +968,15 @@
         -webkit-appearance: none;
         margin: 0;
     }
-    .cart-item-subtotal { /* Desktop: direct child of cart-item */
+    .cart-item-subtotal {
         font-size: 15px;
         font-weight: 600;
         color: var(--modal-text-themed);
-        min-width: 80px; 
+        min-width: 70px; /* Slightly reduced min-width */
         text-align: right;
+        flex-shrink: 0; /* Prevent shrinking */
     }
-    .remove-item-btn { /* Desktop: direct child of cart-item */
+    .remove-item-btn {
         background: none;
         border: none;
         color: var(--orange-accent-color); 
@@ -983,6 +984,7 @@
         cursor: pointer;
         padding: 5px;
         line-height: 1;
+        flex-shrink: 0; /* Prevent shrinking */
     }
     .remove-item-btn:hover {
         color: #E57A00; 
@@ -1014,7 +1016,7 @@
     /* Mobile Styles - Enhanced for better auto layout */
     @media (max-width: 992px) { /* Tablet and below */
       .menu-grid {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Slightly smaller minmax for tablets */
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
       }
       .hero h1 { font-size: 48px; }
       .about-container { flex-direction: column; }
@@ -1055,56 +1057,70 @@
       .cart-modal-content { max-width: 95%; padding: 15px; }
       .modal-title { font-size: 20px; }
       
-      .cart-items-list { min-height: 150px; /* Explicit min-height for mobile */ }
+      .cart-items-list { min-height: 150px; }
 
       .cart-item {
-          flex-direction: column; /* Stack everything in the item vertically */
-          align-items: stretch; /* Make children take full width by default */
-          gap: 10px;
-      }
-      .cart-item-row-1 { /* Image and details side-by-side */
           display: flex;
-          align-items: center;
-          width: 100%;
-          gap: 10px;
+          align-items: center; /* Key for single-row attempt */
+          flex-wrap: wrap;    /* Allow wrapping if elements don't fit */
+          gap: 8px;          /* Space between items */
+          padding: 10px 0;
       }
       .cart-item-image {
-          width: 50px;
-          height: 50px;
+          width: 45px;
+          height: 45px;
           flex-shrink: 0;
       }
       .cart-item-details {
-          flex-grow: 1;
+          flex: 1 1 100px; /* Grow, shrink, with a basis of 100px */
+          min-width: 80px;  /* Don't get too small */
       }
-      .cart-item-name { font-size: 15px; }
-      .cart-item-price { font-size: 13px; }
-      
-      .cart-item-row-2 { /* Quantity and subtotal side-by-side */
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 100%;
-          margin-top: 5px; /* Space between rows */
-          gap: 10px;
+      .cart-item-name {
+          font-size: 14px; /* Smaller name */
+          margin-bottom: 2px;
+          word-break: break-word;
       }
-      .cart-item-quantity-controls { /* Renamed for clarity in mobile context */
+      .cart-item-price {
+          font-size: 12px; /* Smaller price */
+      }
+      .cart-item-quantity-controls {
           display: flex;
           align-items: center;
+          flex-shrink: 0; /* Try not to shrink these controls too much */
+          margin: 5px 0; /* Add some margin if it wraps */
       }
-      .quantity-input { width: 35px; padding: 4px; }
-      .quantity-btn { width: 24px; height: 24px; font-size: 14px; }
+      .quantity-btn {
+          width: 24px; /* Smaller buttons */
+          height: 24px;
+          font-size: 12px;
+          line-height: 22px; /* Center icon/text */
+      }
+      .quantity-input {
+          width: 32px; /* Smaller input */
+          height: 24px;
+          font-size: 12px;
+          padding: 0 3px;
+      }
       .cart-item-subtotal {
-          font-size: 14px;
+          font-size: 13px;
           font-weight: 600;
           text-align: right;
+          flex-shrink: 0;
+          margin-left: auto; /* Push to the right if space allows on the current line */
+          padding-left: 8px; /* Space from previous item */
+          min-width: 50px; /* Ensure some space for subtotal */
       }
-      .remove-item-btn { /* Will be full width due to parent's align-items:stretch */
-          margin-top: 8px; /* Space above remove button */
-          text-align: right; /* Align icon to the right */
-          padding: 5px 0; /* Adjust padding */
-          font-size: 18px;
+      .remove-item-btn {
+          padding: 5px;
+          font-size: 18px; /* Slightly smaller icon */
+          flex-shrink: 0;
+          margin-left: 5px; /* If it's on the same line as subtotal */
       }
-      .remove-item-btn i { display: inline-block; } /* Ensure icon is treated as block for alignment */
+
+      /* Handle cases where subtotal and remove button might wrap together */
+      .cart-item > .cart-item-subtotal + .remove-item-btn {
+        /* If they are immediate siblings after wrapping */
+      }
 
 
       .modal-footer { flex-direction: column; gap: 10px; }
@@ -1125,12 +1141,14 @@
       .form-control { font-size: 14px; padding: 8px 10px; }
       .btn { font-size: 14px; padding: 10px 15px; }
 
-      .cart-item-image { width: 45px; height: 45px; } /* Slightly smaller image */
-      .cart-item-name { font-size: 14px; }
-      .cart-item-price { font-size: 12px; }
-      .cart-item-row-2 { flex-wrap: wrap; justify-content: flex-start;} /* Allow quantity/subtotal to wrap */
-      .cart-item-quantity-controls { margin-bottom: 5px; }
-      .cart-item-subtotal { width: 100%; text-align: left; margin-top: 5px; } /* Subtotal below quantity */
+      .cart-item-image { width: 40px; height: 40px; } 
+      .cart-item-details { flex-basis: 80px; min-width: 60px; }
+      .cart-item-name { font-size: 13px; }
+      .cart-item-price { font-size: 11px; }
+      .quantity-btn { width: 20px; height: 20px; font-size: 10px; line-height: 18px; }
+      .quantity-input { width: 28px; height: 20px; font-size: 10px; }
+      .cart-item-subtotal { font-size: 12px; min-width: 45px; padding-left: 5px; }
+      .remove-item-btn { font-size: 16px; padding: 3px; margin-left: 3px;}
     }
   </style>
 </head>
@@ -1353,7 +1371,7 @@
     const navLinks = document.querySelector('.nav-links');
     const overlay = document.querySelector('.overlay');
     
-    if (mobileMenu) {
+    if (mobileMenu && navLinks && overlay) { // Ensure elements exist
         mobileMenu.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         overlay.classList.toggle('active');
@@ -1361,12 +1379,10 @@
             ? '<i class="fa-solid fa-xmark"></i>' 
             : '<i class="fa-solid fa-bars"></i>';
         });
-    }
-    if (overlay) {
         overlay.addEventListener('click', () => {
         navLinks.classList.remove('active');
         overlay.classList.remove('active');
-        if (mobileMenu) mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
         });
     }
 
@@ -1407,8 +1423,8 @@
     }
     
     window.addEventListener('scroll', scrollFunction);
-    checkScroll(); // Initial check
-    scrollFunction(); // Initial check for header and back-to-top
+    checkScroll(); 
+    scrollFunction(); 
 
     if (backToTopBtn) {
         backToTopBtn.addEventListener('click', () => {
@@ -1422,19 +1438,18 @@
       anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
         
-        // Allow default for external links or non-anchor links
         if (!targetId.startsWith('#') || targetId === '#') {
           return;
         }
         
-        e.preventDefault(); // Prevent default only for valid internal anchors
+        e.preventDefault(); 
 
         const targetElement = document.querySelector(targetId);
         
         if (targetElement) {
-          if (navLinks.classList.contains('active')) { // Close mobile menu if open
+          if (navLinks && navLinks.classList.contains('active')) { 
             navLinks.classList.remove('active');
-            overlay.classList.remove('active');
+            if(overlay) overlay.classList.remove('active');
             if (mobileMenu) mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
           }
           
@@ -1473,25 +1488,23 @@
     }
 
     function startTestimonialCarousel() {
-        if (testimonialItemsData.length === 0) return;
-        showTestimonial(currentTestimonial); // Show initial
+        if (testimonialItemsData.length === 0 || dots.length === 0) return;
+        showTestimonial(currentTestimonial); 
         testimonialInterval = setInterval(() => {
             currentTestimonial = (currentTestimonial + 1) % testimonialItemsData.length;
             showTestimonial(currentTestimonial);
         }, 5000);
     }
     
-    if (dots.length > 0) {
-        startTestimonialCarousel();
-        dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentTestimonial = index;
-            showTestimonial(currentTestimonial);
-            clearInterval(testimonialInterval); 
-            startTestimonialCarousel(); // Restart interval from current
-        });
-        });
-    }
+    startTestimonialCarousel(); // Initialize
+    dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentTestimonial = index;
+        showTestimonial(currentTestimonial);
+        clearInterval(testimonialInterval); 
+        startTestimonialCarousel(); 
+    });
+    });
 
 
     // Shopping Cart Functionality
@@ -1551,23 +1564,18 @@
                 const cartItemDiv = document.createElement('div');
                 cartItemDiv.classList.add('cart-item');
                 cartItemDiv.dataset.id = item.id;
-                // Updated HTML structure for better mobile layout
                 cartItemDiv.innerHTML = `
-                    <div class="cart-item-row-1">
-                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                        <div class="cart-item-details">
-                            <h4 class="cart-item-name">${item.name}</h4>
-                            <p class="cart-item-price">${formatCurrency(item.price)}</p>
-                        </div>
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <h4 class="cart-item-name">${item.name}</h4>
+                        <p class="cart-item-price">${formatCurrency(item.price)}</p>
                     </div>
-                    <div class="cart-item-row-2">
-                        <div class="cart-item-quantity-controls">
-                            <button class="quantity-btn minus-btn" data-id="${item.id}" aria-label="Decrease quantity">-</button>
-                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}" aria-label="Item Quantity">
-                            <button class="quantity-btn plus-btn" data-id="${item.id}" aria-label="Increase quantity">+</button>
-                        </div>
-                        <p class="cart-item-subtotal">${formatCurrency(itemSubtotal)}</p>
+                    <div class="cart-item-quantity-controls">
+                        <button class="quantity-btn minus-btn" data-id="${item.id}" aria-label="Decrease quantity">-</button>
+                        <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}" aria-label="Item Quantity">
+                        <button class="quantity-btn plus-btn" data-id="${item.id}" aria-label="Increase quantity">+</button>
                     </div>
+                    <p class="cart-item-subtotal">${formatCurrency(itemSubtotal)}</p>
                     <button class="remove-item-btn" data-id="${item.id}" aria-label="Remove ${item.name} from cart"><i class="fa-solid fa-trash"></i></button>
                 `;
                 cartItemsList.appendChild(cartItemDiv);
@@ -1607,7 +1615,7 @@
     function updateCartItemQuantity(id, quantity) {
         const itemInCart = cart.find(item => item.id === id);
         if (itemInCart) {
-            itemInCart.quantity = Math.max(0, quantity); // Ensure quantity doesn't go below 0
+            itemInCart.quantity = Math.max(0, quantity); 
             if (itemInCart.quantity === 0) {
                 removeItemFromCart(id); 
             } else {
@@ -1623,7 +1631,6 @@
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            // e.preventDefault(); // No longer needed here due to button type
             const menuItem = e.target.closest('.menu-item');
             if (!menuItem) return;
             const id = menuItem.dataset.id;
@@ -1647,7 +1654,7 @@
                 if (item) updateCartItemQuantity(id, item.quantity + 1);
             } else if (buttonClicked.classList.contains('minus-btn')) {
                 const item = cart.find(i => i.id === id);
-                if (item && item.quantity > 0) updateCartItemQuantity(id, item.quantity - 1); // Will remove if it hits 0
+                if (item) updateCartItemQuantity(id, item.quantity - 1); 
             } else if (buttonClicked.classList.contains('remove-item-btn')) {
                 removeItemFromCart(id);
             }
@@ -1660,7 +1667,7 @@
                 if (!isNaN(newQuantity)) { 
                     updateCartItemQuantity(id, newQuantity);
                 } else { 
-                    renderCart(); // Re-render to reset if input is invalid
+                    renderCart(); 
                 }
             }
         });
@@ -1723,7 +1730,7 @@
             window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
 
             cart = [];
-            cartOrderForm.reset();
+            if(cartOrderForm) cartOrderForm.reset(); // Check if form exists before reset
             renderCart();
             if(cartModal) cartModal.classList.remove('show');
         });
