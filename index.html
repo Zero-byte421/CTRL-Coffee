@@ -1,0 +1,1053 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTRL + Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1A3C34;
+      --accent: #2E6659;
+      --light: #FFFFFF;
+      --gray: #F1F1F1;
+      --green-order: #25D366;
+      --green-hover: #20B857;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER & NAVIGATION */
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 5px 0;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo i {
+      font-size: 22px;
+    }
+
+    .logo img {
+      max-height: 40px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .mobile-menu {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 180px 20px 120px;
+      background: url('./Gallery/BRAND\ CTRL+COFFE.png') no-repeat center/cover;
+      color: var(--light);
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(26, 60, 52, 0.8), rgba(0, 0, 0, 0.6));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      animation: fadeInUp 1s ease;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      font-size: 22px;
+      font-weight: 300;
+      margin-bottom: 35px;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 35px;
+      background: var(--primary);
+      color: var(--light);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1.4s ease;
+      border: 2px solid var(--primary);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+      background: transparent;
+      border-color: var(--light);
+    }
+
+    /* MENU SECTION */
+    .menu-section {
+      padding: 100px 20px 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .menu-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(to bottom, rgba(241, 241, 241, 0.6), transparent);
+      z-index: -1;
+    }
+
+    .section-title {
+      display: inline-block;
+      position: relative;
+      font-size: 44px;
+      font-weight: 900;
+      margin-bottom: 70px;
+      color: var(--primary);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      justify-items: center;
+    }
+
+    .menu-item {
+      background: var(--light);
+      border-radius: 20px;
+      padding: 0;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: left;
+      max-width: 320px;
+      width: 100%;
+      overflow: hidden;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    .menu-item.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .menu-item-image {
+      width: 100%;
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-item-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+    }
+
+    .menu-item-content {
+      padding: 25px;
+    }
+
+    .menu-item h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--primary);
+      transition: color 0.3s ease;
+    }
+
+    .menu-item-desc {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+      height: 40px;
+    }
+
+    .menu-item p.price {
+      font-size: 22px;
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .order-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 25px;
+      background: var(--green-order);
+      color: var(--light);
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .order-button:hover {
+      background: var(--green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(32, 184, 87, 0.3);
+    }
+
+    .menu-item:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .menu-item:hover h3 {
+      color: var(--accent);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 80px 20px;
+      background-color: #f9f9f9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to bottom, var(--light), transparent);
+      z-index: 1;
+    }
+    
+    .testimonial-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .testimonial-item {
+      background: var(--light);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .testimonial-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+    }
+
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonial-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .testimonial-role {
+      font-size: 14px;
+      color: var(--accent);
+    }
+
+    .testimonial-dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 5px;
+      background-color: #ddd;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background-color: var(--accent);
+      transform: scale(1.3);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--primary);
+      color: var(--light);
+      padding: 60px 20px 30px;
+      margin-top: 0;
+      position: relative;
+      clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      padding-top: 40px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background-color: var(--accent);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--light);
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--light);
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background-color: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 40px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* BACK TO TOP */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--accent);
+      color: var(--light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mobile Styles - Enhanced for better auto layout */
+    @media (max-width: 992px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .hero h1 {
+        font-size: 48px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--light);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+        padding: 50px 0;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links a {
+        font-size: 18px;
+        margin: 15px 0;
+      }
+
+      .mobile-menu {
+        display: block;
+        z-index: 1002;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .logo {
+        font-size: 22px;
+      }
+
+      .hero {
+        padding: 150px 20px 100px;
+        min-height: 500px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .cta-button {
+        padding: 12px 30px;
+        font-size: 14px;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .menu-item {
+        max-width: 100%;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .footer-column {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .menu-item {
+        padding: 0;
+      }
+      
+      .menu-item-content {
+        padding: 20px;
+      }
+
+      .testimonial-item {
+        padding: 20px 15px;
+        margin: 10px;
+      }
+
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+      
+      .hero-content {
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+        <nav class="container">
+            <div class="logo">
+                <i class="fa-solid fa-mug-hot"></i>
+                <span>CTRL + Coffee</span>
+            </div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="mobile-menu">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+  <div class="overlay"></div>
+
+  <section class="hero" id="home">
+    <div class="hero-content container">
+      <h1>Sip the Future at CTRL + Coffee</h1>
+      <p>Discover bold flavors and street vibes with every refreshing drink.</p>
+      <a href="#menu" class="cta-button">
+        <i class="fa-solid fa-mug-hot"></i> Explore Menu
+      </a>
+    </div>
+  </section>
+
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <h2 class="section-title">Our Signature Drinks</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+CTRL+Coffee');"></div>
+          <div class="menu-item-content">
+            <h3>Ice CTRL+ Coffee</h3>
+            <div class="menu-item-desc">Our signature cold brew with a hint of vanilla.</div>
+            <p class="price">Rp10.000</p>
+            <a href="#" class="order-button" onclick="orderDrink('Ice CTRL+ Coffee', 10000)">
+              <i class="fa-brands fa-whatsapp"></i> Order Now
+            </a>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+Lemon+Rock');"></div>
+          <div class="menu-item-content">
+            <h3>Ice Lemon Rock</h3>
+            <div class="menu-item-desc">Refreshing lemon soda with mint and basil notes.</div>
+            <p class="price">Rp12.000</p>
+            <a href="#" class="order-button" onclick="orderDrink('Ice Lemon Rock', 12000)">
+              <i class="fa-brands fa-whatsapp"></i> Order Now
+            </a>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+Chocolatte');"></div>
+          <div class="menu-item-content">
+            <h3>Ice Chocolatte</h3>
+            <div class="menu-item-desc">Premium chocolate with creamy milk and ice.</div>
+            <p class="price">Rp10.000</p>
+            <a href="#" class="order-button" onclick="orderDrink('Ice Chocolatte', 10000)">
+              <i class="fa-brands fa-whatsapp"></i> Order Now
+            </a>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+Matcha+Latte');"></div>
+          <div class="menu-item-content">
+            <h3>Ice Matcha Latte</h3>
+            <div class="menu-item-desc">Authentic Japanese matcha with creamy milk.</div>
+            <p class="price">Rp15.000</p>
+            <a href="#" class="order-button" onclick="orderDrink('Ice Matcha Latte', 15000)">
+              <i class="fa-brands fa-whatsapp"></i> Order Now
+            </a>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-image" style="background-image: url('/api/placeholder/320/180?text=Ice+Lava+Pink');"></div>
+          <div class="menu-item-content">
+            <h3>Ice Lava Pink</h3>
+            <div class="menu-item-desc">Exotic dragon fruit blend with a hint of coconut.</div>
+            <p class="price">Rp15.000</p>
+            <a href="#" class="order-button" onclick="orderDrink('Ice Lava Pink', 15000)">
+              <i class="fa-brands fa-whatsapp"></i> Order Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">What People Say</h2>
+      <div class="testimonial-container">
+        <div class="testimonial-item">
+          <div class="testimonial-avatar">
+            <img src="/api/placeholder/80/80" alt="User Avatar">
+          </div>
+          <p class="testimonial-text">"CTRL + Coffee is my coding sanctuary! The Ice Matcha Latte keeps me energized through late-night debugging sessions. Best coffee spot for tech enthusiasts!"</p>
+          <h4 class="testimonial-name">Rina Wijaya</h4>
+          <p class="testimonial-role">Software Developer</p>
+        </div>
+      </div>
+      <div class="testimonial-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3 class="footer-title">About Us</h3>
+          <p style="color: #ddd; margin-bottom: 20px;">CTRL + Coffee is a modern street café where tech meets taste. We serve premium beverages in a relaxed atmosphere perfect for coding, creating, or just chilling.</p>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Opening Hours</h3>
+          <ul class="footer-links">
+            <li><i class="fa-regular fa-clock"></i> Mon - Fri: 08:00 - 22:00</li>
+            <li><i class="fa-regular fa-clock"></i> Sat - Sun: 10:00 - 23:00</li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Contact</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+6289657779224"><i class="fa-solid fa-phone"></i> +62 896-5777-9224</a></li>
+            <li><a href="mailto:hello@ctrlcoffee.id"><i class="fa-solid fa-envelope"></i> hello@ctrlcoffee.id</a></li>
+            <li><a href="#"><i class="fa-solid fa-location-dot"></i> Jl. Kota Sukabumi</a></li>
+          </ul>
+          <div class="social-links">
+            <a href="https://www.instagram.com/ctrlcoffee.smi/" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 CTRL + Coffee. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const overlay = document.querySelector('.overlay');
+    
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+      mobileMenu.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fa-solid fa-xmark"></i>' 
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+    
+    overlay.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    });
+
+    // Scroll Animation for Menu Items
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    function checkScroll() {
+      const triggerBottom = window.innerHeight * 0.8;
+      
+      menuItems.forEach((menuItem, index) => {
+        const menuTop = menuItem.getBoundingClientRect().top;
+        
+        if (menuTop < triggerBottom) {
+          setTimeout(() => {
+            menuItem.classList.add('visible');
+          }, index * 100);
+        }
+      });
+    }
+    
+    // Back to Top Button
+    const backToTopBtn = document.querySelector('.back-to-top');
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+      
+      // Header scroll effect
+      // Header scroll effect
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.getElementById('header').classList.add('scrolled');
+      } else {
+        document.getElementById('header').classList.remove('scrolled');
+      }
+      
+      // Check for menu items visibility
+      checkScroll();
+    }
+    
+    // Scroll event listener
+    window.addEventListener('scroll', scrollFunction);
+    
+    // Initial check
+    checkScroll();
+    scrollFunction();
+    
+    // Back to top functionality
+    backToTopBtn.addEventListener('click', () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+    
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          // Close mobile menu if open
+          navLinks.classList.remove('active');
+          overlay.classList.remove('active');
+          mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          
+          // Scroll to element
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Testimonial carousel
+    const dots = document.querySelectorAll('.dot');
+    const testimonialItems = [
+      {
+        avatar: "/api/placeholder/80/80",
+        text: "\"CTRL + Coffee is my coding sanctuary! The Ice Matcha Latte keeps me energized through late-night debugging sessions. Best coffee spot for tech enthusiasts!\"",
+        name: "Rina Wijaya",
+        role: "Software Developer"
+      },
+      {
+        avatar: "/api/placeholder/80/80",
+        text: "\"Their Ice Lava Pink is not just Instagram-worthy but absolutely delicious! The staff knows my order before I even reach the counter. Love the tech-vibe here!\"",
+        name: "Budi Santoso",
+        role: "UI/UX Designer"
+      },
+      {
+        avatar: "/api/placeholder/80/80",
+        text: "\"As a digital nomad, I've tried coffee shops all over Indonesia. CTRL + Coffee has the perfect balance of good wifi, great drinks, and a productive atmosphere!\"",
+        name: "Dian Kartika",
+        role: "Content Creator"
+      }
+    ];
+    
+    let currentTestimonial = 0;
+    
+    function showTestimonial(index) {
+      const testimonialContainer = document.querySelector('.testimonial-item');
+      const testimonial = testimonialItems[index];
+      
+      testimonialContainer.innerHTML = `
+        <div class="testimonial-avatar">
+          <img src="${testimonial.avatar}" alt="User Avatar">
+        </div>
+        <p class="testimonial-text">${testimonial.text}</p>
+        <h4 class="testimonial-name">${testimonial.name}</h4>
+        <p class="testimonial-role">${testimonial.role}</p>
+      `;
+      
+      // Update dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+    
+    // Add event listeners to dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentTestimonial = index;
+        showTestimonial(currentTestimonial);
+      });
+    });
+    
+    // Auto-rotate testimonials
+    setInterval(() => {
+      currentTestimonial = (currentTestimonial + 1) % testimonialItems.length;
+      showTestimonial(currentTestimonial);
+    }, 5000);
+    
+    // WhatsApp ordering functionality
+    // Fungsi untuk pemesanan minuman via WhatsApp dengan format bahasa Indonesia
+function orderDrink(drinkName, price) {
+  const whatsappNumber = "+6285123669171";
+  
+  // Template pesan dengan format yang diminta dalam bahasa Indonesia
+  const message = `Halo CTRL + Coffee, saya ingin memesan:
+
+*Nama :* 
+*Alamat :* 
+*Pesanan :* ${drinkName}
+*Harga :* Rp${price.toLocaleString()}
+*Metode Pembayaran :* 
+*Catatan :* 
+
+
+Terima kasih!`;
+
+  const encodedMessage = encodeURIComponent(message);
+  
+  // Buka WhatsApp dengan pesan yang sudah diformat
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+}
+  </script>
+</body>
+</html>
