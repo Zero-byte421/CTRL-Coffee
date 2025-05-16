@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root {
+     :root {
       --primary: #1A3C34;
       --accent: #2E6659;
       --light: #FFFFFF;
@@ -128,7 +128,7 @@
       position: relative;
       text-align: center;
       padding: 180px 20px 120px;
-      background: url('./Gallery/BRAND_CTRL+COFFE@.png') no-repeat center/cover;
+      background: url('./Gallery/BRAND\ CTRL+COFFE.png') no-repeat center/cover;
       color: var(--light);
       min-height: 600px;
       display: flex;
@@ -359,6 +359,7 @@
     .testimonial-container {
       max-width: 900px;
       margin: 0 auto;
+      position: relative;
     }
 
     .testimonial-item {
@@ -425,6 +426,98 @@
     .dot.active {
       background-color: var(--accent);
       transform: scale(1.3);
+    }
+
+    /* ABOUT US SECTION */
+    .about-section {
+      padding: 100px 20px;
+      background-color: var(--light);
+      position: relative;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-image {
+      flex: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-content {
+      flex: 1;
+      text-align: left;
+    }
+
+    .about-subtitle {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .about-title {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 25px;
+      line-height: 1.2;
+    }
+
+    .about-description {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      font-size: 18px;
+    }
+
+    .feature-text {
+      font-weight: 500;
+      color: var(--primary);
     }
 
     /* FOOTER */
@@ -572,6 +665,144 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
+    /* ORDER MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.75);
+      z-index: 1050;
+      overflow: auto;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background-color: #1E293B;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 100%;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      margin-bottom: 20px;
+    }
+
+    .modal-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 5px;
+    }
+
+    .modal-subtitle {
+      font-size: 14px;
+      color: #94A3B8;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #E2E8F0;
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      background-color: #2D3748;
+      border: 1px solid #4A5568;
+      border-radius: 8px;
+      font-size: 15px;
+      color: #FFFFFF;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: #10B981;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+      outline: none;
+    }
+
+    .form-control::placeholder {
+      color: #94A3B8;
+    }
+
+    textarea.form-control {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background-color: #4B5563;
+      color: #FFFFFF;
+    }
+
+    .btn-secondary:hover {
+      background-color: #374151;
+    }
+
+    .btn-primary {
+      background-color: #10B981;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-primary:hover {
+      background-color: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
+    }
+
+    .whatsapp-icon {
+      margin-right: 8px;
+    }
+
     /* Mobile Styles - Enhanced for better auto layout */
     @media (max-width: 992px) {
       .menu-grid {
@@ -580,6 +811,15 @@
       
       .hero h1 {
         font-size: 48px;
+      }
+      
+      .about-container {
+        flex-direction: column;
+      }
+      
+      .about-image {
+        width: 100%;
+        margin-bottom: 30px;
       }
     }
 
@@ -665,6 +905,10 @@
 
       .menu-item {
         max-width: 100%;
+      }
+      
+      .about-features {
+        grid-template-columns: 1fr;
       }
 
       .footer-container {
@@ -1026,28 +1270,125 @@
     }, 5000);
     
     // WhatsApp ordering functionality
-    // Fungsi untuk pemesanan minuman via WhatsApp dengan format bahasa Indonesia
-function orderDrink(drinkName, price) {
-  const whatsappNumber = "+6285123669171";
-  
-  // Template pesan dengan format yang diminta dalam bahasa Indonesia
-  const message = `Halo CTRL + Coffee, saya ingin memesan:
+ // Function to handle drink order
+ function orderDrink(drinkName, price) {
+    // Show modal
+    const modal = document.getElementById('orderModal');
+    modal.classList.add('show');
+    
+    // Set drink name
+    const drinkNameInput = document.getElementById('drinkName');
+    drinkNameInput.value = drinkName;
+    
+    const form = document.getElementById('orderForm');
+    
+    // Handle form submission
+    form.onsubmit = function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const address = document.getElementById('address').value;
+      const quantity = parseInt(document.getElementById('quantity').value);
+      const paymentMethod = document.getElementById('paymentMethod').value;
+      const notes = document.getElementById('notes').value;
+      
+      // Validate quantity
+      if (isNaN(quantity) || quantity < 1) {
+        alert('Jumlah minuman tidak valid. Silakan masukkan angka yang valid.');
+        return;
+      }
+      
+      // Calculate total price
+      const totalPrice = price * quantity;
+      const whatsappNumber = '+6285123669171';
+      
+      // Format WhatsApp message
+      const message = `Halo CTRL + Coffee, saya ingin memesan:
 
-*Nama :* 
-*Alamat :* 
+*Nama :* ${name}
+*Alamat :* ${address}
 *Pesanan :* ${drinkName}
-*Harga :* Rp${price.toLocaleString()}
-*Metode Pembayaran :* 
-*Catatan :* 
-
+*Jumlah :* ${quantity}
+*Harga Satuan :* Rp${price.toLocaleString()}
+*Total Harga :* Rp${totalPrice.toLocaleString()}
+*Metode Pembayaran :* ${paymentMethod}
+*Catatan :* ${notes}
 
 Terima kasih!`;
-
-  const encodedMessage = encodeURIComponent(message);
-  
-  // Buka WhatsApp dengan pesan yang sudah diformat
-  window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-}
+      
+      const encodedMessage = encodeURIComponent(message);
+      
+      // Open WhatsApp
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+      
+      // Close modal
+      modal.classList.remove('show');
+      form.reset();
+    };
+    
+    // Handle cancel button
+    document.getElementById('cancelButton').onclick = function() {
+      modal.classList.remove('show');
+      form.reset();
+    };
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.classList.remove('show');
+        form.reset();
+      }
+    };
+  }
   </script>
+  <!-- Add this code right before the closing </body> tag in your HTML file -->
+
+<!-- Order Modal -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">Pesan Minuman</h2>
+      <p class="modal-subtitle">Lengkapi data pemesanan Anda</p>
+    </div>
+    <form id="orderForm">
+      <div class="form-group">
+        <label class="form-label" for="drinkName">Minuman</label>
+        <input type="text" id="drinkName" name="drinkName" class="form-control" readonly>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="name">Nama</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama Anda" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="address">Alamat</label>
+        <textarea id="address" name="address" class="form-control" placeholder="Masukkan alamat pengiriman" required></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="quantity">Jumlah</label>
+        <input type="number" id="quantity" name="quantity" class="form-control" min="1" value="1" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="paymentMethod">Metode Pembayaran</label>
+        <select id="paymentMethod" name="paymentMethod" class="form-control" required>
+          <option value="">Pilih metode pembayaran</option>
+          <option value="Tunai">Tunai</option>
+          <option value="Transfer Bank">Transfer Bank</option>
+          <option value="QRIS">QRIS</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="notes">Catatan</label>
+        <textarea id="notes" name="notes" class="form-control" placeholder="Catatan tambahan (opsional)"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancelButton" class="btn btn-secondary">Batal</button>
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-brands fa-whatsapp whatsapp-icon"></i> Pesan via WhatsApp
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 </body>
 </html>
